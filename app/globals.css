@@ -542,6 +542,7 @@ img {
 
 .faculty-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .faculty-card,
@@ -552,19 +553,24 @@ img {
 
 .faculty-card-featured {
   display: grid;
-  grid-template-columns: 116px minmax(0, 1fr);
-  gap: 0;
-  align-items: center;
-  padding: 0;
-  overflow: hidden;
+  grid-template-columns: 142px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 20px;
+  overflow: visible;
 }
 
 .faculty-card-copy {
-  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 2px 0 0;
 }
 
 .faculty-portrait-link {
   display: block;
+  align-self: start;
 }
 
 .faculty-portrait,
@@ -577,10 +583,13 @@ img {
 }
 
 .faculty-portrait {
-  height: 100%;
-  min-height: 168px;
-  padding: 12px;
+  height: auto;
+  min-height: 0;
+  padding: 14px;
   aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .faculty-portrait img,
@@ -677,6 +686,20 @@ img {
   color: inherit;
 }
 
+.faculty-card-copy .role-label,
+.student-card-copy .role-label {
+  margin: 0;
+}
+
+.faculty-card-copy h3,
+.student-card-copy h3 {
+  margin: 0;
+}
+
+.faculty-card-copy > p {
+  margin: 0;
+}
+
 .faculty-card-copy h3 a:hover,
 .profile-breadcrumbs a:hover,
 .link-stack a:hover {
@@ -685,11 +708,16 @@ img {
 
 .faculty-card .faculty-direction,
 .faculty-profile-role {
-  margin: 10px 0 0;
+  margin: 0;
   color: var(--blue-800);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.6;
+}
+
+.faculty-card-copy .action-row {
+  margin-top: auto;
+  padding-top: 6px;
 }
 
 .focus-list,

@@ -197,20 +197,24 @@ export const facultyMembers: FacultyMember[] = [
       {
         title: "Quantum information processing using frozen core Y3+ spins in Eu3+:Y2SiO5",
         citation: "M. Zhong, R. Ahlefeldt, M. Sellars, New Journal of Physics 21, 033019 (2019).",
+        href: "https://doi.org/10.1088/1367-2630/ab0cb7",
       },
       {
         title: "Concept for single satellite global quantum key distribution using a solid-state quantum memory",
         citation: "S.-E. Wittig, S.-M. Wittig, A. Berquand, M. Zhong, and M. Sellars, IAC-17-B2.7.1 (2017).",
+        href: "https://researchportalplus.anu.edu.au/en/publications/concept-for-single-satellite-global-quantum-key-distribution-usin/",
       },
       {
         title: "Optically addressable nuclear spins in a solid with a six-hour coherence time",
         citation:
           "M. Zhong, M. Hedges, R. Ahlefeldt, J. Bartholomew, S. Beavan, S. Wittig, J. Longdell, and M. Sellars, Nature 517, 177-180 (2015).",
+        href: "https://www.nature.com/articles/nature14025",
       },
       {
         title: "Minimizing Zeeman sensitivity on optical and hyperfine transitions in EuCl3·6H2O to extend coherence times",
         citation:
           "R. Ahlefeldt, M. Zhong, J. Bartholomew, and M. Sellars, Journal of Luminescence 143, 193-200 (2013).",
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S0022231313002573",
       },
     ],
   },
@@ -258,11 +262,13 @@ export const facultyMembers: FacultyMember[] = [
         title: "Decoherence characterization and quantum memory design in 167Er3+:Y2SiO5",
         citation:
           "M. Guo, Q. Li, Z. Xu, S. Liu, F. Wang, and M. Zhong, Frontiers of Physics 21, 033201 (2026).",
+        href: "https://doi.org/10.15302/frontphys.2026.033201",
       },
       {
         title: "Realization of strong coupling between Er3+:CaWO4 crystal and the loop-gap resonator for a hybrid quantum system",
         citation:
           "Q. Li, M. Ren, S. Liu, F. Wang, and M. Zhong, Applied Physics Letters 127, 114001 (2025).",
+        href: "https://doi.org/10.1063/5.0285984",
       },
       {
         title: "Optical coherence and hyperfine structure of the 7F0<->5D0 transition in Eu3+:CaWO4",
@@ -274,11 +280,13 @@ export const facultyMembers: FacultyMember[] = [
         title: "Multimodal Purcell enhancement and optical coherence of Eu3+ ions in a single nanoparticle coupled to a microcavity",
         citation:
           "T. Eichhorn, N. Jobbitt, S. Bieling, S. Liu, T. Krom, D. Serrano, R. Huber, U. Lemmer, H. de Riedmatten, P. Goldner, and D. Hunger, Nanophotonics 14, 1817-1826 (2025).",
+        href: "https://doi.org/10.1515/nanoph-2024-0721",
       },
       {
         title: "Optical coherence properties of Kramers' rare-earth ions at the nanoscale for quantum applications",
         citation:
           "M. K. Alqedra, C. Deshmukh, S. Liu, D. Serrano, S. P. Horvath, S. Rafie-Zinedine, A. Abdelatief, L. Rippe, S. Kröll, B. Casabone, A. Ferrier, A. Tallaire, P. Goldner, H. de Riedmatten, and A. Walther, Physical Review B 108, 075107 (2023).",
+        href: "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.075107",
       },
       {
         title: "Defect Engineering for Quantum Grade Rare-Earth Nanocrystals",
@@ -289,17 +297,19 @@ export const facultyMembers: FacultyMember[] = [
         title: "A Frequency-Multiplexed Coherent Electro-optic Memory in Rare Earth Doped Nanoparticles",
         citation:
           "A. Fossati, S. Liu, J. Karlsson, A. Ikesue, A. Tallaire, A. Ferrier, D. Serrano, and P. Goldner, Nano Letters 20, 7087-7093 (2020).",
+        href: "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c02200",
       },
       {
         title: "Dynamic control of Purcell enhanced emission of erbium ions in nanoparticles",
         citation:
           "B. Casabone, C. Deshmukh, S. Liu, D. Serrano, A. Ferrier, T. Hummer, P. Goldner, D. Hunger, and H. de Riedmatten, Nature Communications 12, 3570 (2021).",
-        href: "https://www.nature.com/articles/s41467-021-23818-5",
+        href: "https://www.nature.com/articles/s41467-021-23632-9",
       },
       {
         title: "Towards Bright and Fast Lu3Al5O12:Ce,Mg Optical Ceramics Scintillators",
         citation:
           "S. Liu, J. A. Mares, X. Feng, A. Vedda, M. Fasoli, Y. Shi, H. Kou, A. Beitlerova, L. Wu, C. D'Ambrosio, Y. Pan, and M. Nikl, Advanced Optical Materials 4, 731-739 (2016).",
+        href: "https://doi.org/10.1002/adom.201500691",
       },
     ],
   },
@@ -350,6 +360,7 @@ export const facultyMembers: FacultyMember[] = [
         title: "Realization of strong coupling between Er3+:CaWO4 crystal and the loop-gap resonator for a hybrid quantum system",
         citation:
           "Q. Li, M. Ren, S. Liu, F. Wang, and M. Zhong, Applied Physics Letters 127, 114001 (2025).",
+        href: "https://doi.org/10.1063/5.0285984",
       },
       {
         title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
@@ -361,6 +372,7 @@ export const facultyMembers: FacultyMember[] = [
         title: "Optical coherence and hyperfine structure of the 7F0<->5D0 transition in Eu3+:CaWO4",
         citation:
           "X. An, W. Sun, Z. Xu, W. Xiao, M. Ren, M. Guo, S. Liu, F. Wang, and M. Zhong, Journal of Luminescence 281, 121209 (2025).",
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S0022231325001498",
       },
       {
         title: "Rare-earth quantum memories: The experimental status quo",
@@ -372,21 +384,25 @@ export const facultyMembers: FacultyMember[] = [
         title: "Conductivity Spectrum of Ultracold Atoms in an Optical Lattice",
         citation:
           "R. Anderson, F. Wang, P. Xu, V. Venu, S. Trotzky, F. Chevy, and J. H. Thywissen, Physical Review Letters 122, 153602 (2019).",
+        href: "https://doi.org/10.1103/PhysRevLett.122.153602",
       },
       {
         title: "Observation of resonant scattering between ultracold heteronuclear Feshbach molecules",
         citation:
           "F. Wang, X. Ye, M. Guo, D. Blume, and D. Wang, Physical Review A 100, 042706 (2019).",
+        href: "https://doi.org/10.1103/PhysRevA.100.042706",
       },
       {
         title: "Creation of an Ultracold Gas of Ground-State Dipolar 23Na87Rb Molecules",
         citation:
           "M. Guo, B. Zhu, B. Lu, X. Ye, F. Wang, R. Vexiau, N. Bouloufa-Maafa, G. Quemener, O. Dulieu, and D. Wang, Physical Review Letters 116, 205303 (2016).",
+        href: "https://doi.org/10.1103/PhysRevLett.116.205303",
       },
       {
         title: "Formation of ultracold NaRb Feshbach molecules",
         citation:
           "F. Wang, X. He, X. Li, B. Zhu, J. Chen, and D. Wang, New Journal of Physics 17, 035003 (2015).",
+        href: "https://doi.org/10.1088/1367-2630/17/3/035003",
       },
     ],
   },
