@@ -5,6 +5,7 @@ APP_ROOT="${APP_ROOT:-/var/www/ssqs/current}"
 
 echo "[1/4] Updating application..."
 cd "$APP_ROOT"
+rm -rf .next
 npm ci
 npm run build
 
