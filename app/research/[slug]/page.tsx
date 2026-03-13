@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "../../components/page-shell";
+import { ResearchSidebar } from "../../components/research-sidebar";
 import { facultyMembers, getFacultyMember } from "../../site-data";
 
 type FacultyProfileProps = {
@@ -42,118 +43,110 @@ export default async function FacultyProfilePage({ params }: FacultyProfileProps
   return (
     <PageShell>
       <main className="site-width page-content faculty-profile-page">
-        <div className="profile-breadcrumbs">
-          <Link href="/research">Research</Link>
-          <span>/</span>
-          <span>{member.name}</span>
-        </div>
+        <div className="sidebar-layout">
+          <ResearchSidebar activeKey="faculty" />
 
-        <section className="faculty-profile-hero">
-          <div className="faculty-profile-portrait">
-            <img src={member.portrait} alt={member.name} />
-          </div>
+          <div className="sidebar-content faculty-detail-shell">
+            <div className="profile-breadcrumbs">
+              <Link href="/research">Research</Link>
+              <span>/</span>
+              <span>Researcher</span>
+              <span>/</span>
+              <span>{member.name}</span>
+            </div>
 
-          <div className="faculty-profile-copy">
-            <p className="eyebrow">Faculty</p>
-            <h1>{member.name}</h1>
-            <p className="faculty-profile-role">{member.role}</p>
+            <section className="faculty-detail-header">
+              <div className="faculty-detail-copy">
+                <p className="eyebrow">Researcher</p>
+                <h1>{member.name}</h1>
+                <p className="faculty-profile-role">{member.role}</p>
 
-            {member.bio.map((paragraph) => (
-              <p className="hero-text profile-text" key={paragraph}>
-                {paragraph}
-              </p>
-            ))}
-
-            <div className="profile-meta-grid">
-              <article className="info-card profile-meta-card">
-                <h2>Research Direction</h2>
-                <p>{member.direction}</p>
-              </article>
-
-              <article className="info-card profile-meta-card">
-                <h2>Contact</h2>
-                <div className="link-stack">
-                  <a href={`mailto:${member.email}`}>{member.email}</a>
-                  {member.office ? <p>{member.office}</p> : null}
-                  <a href={member.officialHref} target="_blank" rel="noreferrer">
-                    Official profile source
-                  </a>
+                <div className="faculty-detail-facts">
+                  <p>
+                    <strong>Email:</strong> <a href={`mailto:${member.email}`}>{member.email}</a>
+                  </p>
+                  {member.office ? (
+                    <p>
+                      <strong>Office:</strong> {member.office}
+                    </p>
+                  ) : null}
+                  <p>
+                    <strong>Research Direction:</strong> {member.direction}
+                  </p>
                 </div>
-              </article>
-            </div>
-          </div>
-        </section>
+              </div>
 
-        <section className="content-section dual-panel">
-          <article className="panel">
-            <p className="eyebrow">Focus</p>
-            <h2>Current emphasis in SSQS</h2>
-            <div className="focus-list">
-              {member.focus.map((item) => (
-                <span key={item}>{item}</span>
+              <div className="faculty-profile-portrait faculty-profile-portrait-compact">
+                <img src={member.portrait} alt={member.name} />
+              </div>
+            </section>
+
+            <section className="detail-section">
+              <h2>Profile</h2>
+              {member.bio.map((paragraph) => (
+                <p className="profile-text" key={paragraph}>
+                  {paragraph}
+                </p>
               ))}
-            </div>
-          </article>
+            </section>
 
-          <article className="panel">
-            <p className="eyebrow">Education</p>
-            <h2>Academic background</h2>
-            <ul className="plain-list">
-              {member.education.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-        </section>
+            <section className="detail-section">
+              <h2>Research Focus</h2>
+              <div className="focus-list">
+                {member.focus.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </section>
 
-        <section className="content-section dual-panel">
-          <article className="panel">
-            <p className="eyebrow">Experience</p>
-            <h2>Professional experience</h2>
-            <ul className="plain-list">
-              {member.experience.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+            <section className="detail-section">
+              <h2>Education</h2>
+              <ul className="plain-list">
+                {member.education.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-          <article className="panel">
-            <p className="eyebrow">Source</p>
-            <h2>Official information reference</h2>
-            <p>
-              This profile is organized for the SSQS website and keeps a direct reference back to the current official
-              faculty source.
-            </p>
-            <div className="action-row action-row-compact">
-              <a href={member.officialHref} target="_blank" rel="noreferrer">
-                Official profile
-              </a>
-            </div>
-          </article>
-        </section>
+            <section className="detail-section">
+              <h2>Professional Experience</h2>
+              <ul className="plain-list">
+                {member.experience.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-        <section className="content-section">
-          <div className="section-heading">
-            <p className="eyebrow">Representative Work</p>
-            <h2>Selected publications</h2>
+            <section className="detail-section">
+              <h2>Selected Publications</h2>
+              <div className="profile-publication-list">
+                {member.selectedWorks.map((work) => (
+                  <article className="info-card profile-publication-card" key={work.title}>
+                    <h3>{work.title}</h3>
+                    <p>{work.citation}</p>
+                    {work.href ? (
+                      <div className="action-row action-row-compact">
+                        <a href={work.href} target="_blank" rel="noreferrer">
+                          Source
+                        </a>
+                      </div>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="detail-section detail-section-source">
+              <h2>Official Source</h2>
+              <p>This SSQS profile is organized from public faculty information and keeps a direct reference to the official page.</p>
+              <div className="action-row action-row-compact">
+                <a href={member.officialHref} target="_blank" rel="noreferrer">
+                  Official profile
+                </a>
+              </div>
+            </section>
           </div>
-
-          <div className="profile-publication-list">
-            {member.selectedWorks.map((work) => (
-              <article className="info-card profile-publication-card" key={work.title}>
-                <h3>{work.title}</h3>
-                <p>{work.citation}</p>
-                {work.href ? (
-                  <div className="action-row action-row-compact">
-                    <a href={work.href} target="_blank" rel="noreferrer">
-                      Source
-                    </a>
-                  </div>
-                ) : null}
-              </article>
-            ))}
-          </div>
-        </section>
+        </div>
       </main>
     </PageShell>
   );

@@ -60,6 +60,14 @@ export type CultivationTrack = {
   summary: string;
 };
 
+export type StudentMember = {
+  name: string;
+  email: string;
+  role: string;
+  summary: string;
+  portrait?: string;
+};
+
 export type JoinCategory = {
   title: string;
   details: string;
@@ -68,7 +76,6 @@ export type JoinCategory = {
 export const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/research", label: "Research" },
-  { href: "/cultivation", label: "Cultivation" },
   { href: "/join-us", label: "Join Us" },
 ];
 
@@ -84,14 +91,14 @@ export const siteMeta = {
 
 export const homeCards: HomeCard[] = [
   {
-    href: "/research",
+    href: "/research#faculty",
     title: "Research",
-    summary: "Faculty, specific research directions, and paper-by-paper summaries of recent results.",
+    summary: "Faculty leadership, research directions, and paper-by-paper summaries of recent results.",
   },
   {
-    href: "/cultivation",
-    title: "Cultivation",
-    summary: "How students are trained through literature, laboratory practice, group meetings, and writing.",
+    href: "/research#students",
+    title: "People & Training",
+    summary: "Student researchers, photo placeholders for future updates, and the training structure of the lab.",
   },
   {
     href: "/join-us",
@@ -419,16 +426,58 @@ export const cultivationTracks: CultivationTrack[] = [
   },
 ];
 
-export const currentStudents = [
-  "Weiye Sun",
-  "Miaomiao Ren",
-  "Mucheng Guo",
-  "Zhenqi Xu",
-  "Zehao Xu",
-  "Xingmin He",
-  "Yuxin Zhang",
-  "Hanwen Liang",
+export const studentMembers: StudentMember[] = [
+  {
+    name: "Weiye Sun",
+    email: "12331503@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Working on rare-earth quantum memory experiments, coherence measurements, and solid-state spectroscopy.",
+  },
+  {
+    name: "Miaomiao Ren",
+    email: "12231257@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Contributing to optical coherence studies, spectroscopy workflows, and quantum-memory-oriented experiments.",
+  },
+  {
+    name: "Mucheng Guo",
+    email: "12331502@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Focusing on rare-earth coherence physics, memory design questions, and materials-driven experimental studies.",
+  },
+  {
+    name: "Zhenqi Xu",
+    email: "12333060@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Supporting host characterization, spectroscopy measurements, and rare-earth material evaluation.",
+  },
+  {
+    name: "Zhehao Xu",
+    email: "12333073@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Working on experimental measurements and data analysis related to rare-earth-ion-doped solid-state systems.",
+  },
+  {
+    name: "Xingmin He",
+    email: "12531198@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Engaged in quantum-memory experiments, laboratory practice, and steadily expanding project ownership.",
+  },
+  {
+    name: "Yuxin Zhang",
+    email: "12532267@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Preparing to contribute to optics, spectroscopy, and quantum-storage-related experimental work in SSQS.",
+  },
+  {
+    name: "Hanwen Liang",
+    email: "12543047@mail.sustech.edu.cn",
+    role: "Graduate Researcher",
+    summary: "Developing research skills through rare-earth materials work, measurements, and quantitative analysis.",
+  },
 ];
+
+export const currentStudents = studentMembers.map((member) => member.name);
 
 export const joinCategories: JoinCategory[] = [
   {
