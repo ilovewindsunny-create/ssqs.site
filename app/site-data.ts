@@ -27,6 +27,7 @@ export type FacultyMember = {
   role: string;
   email: string;
   portrait: string;
+  portraitPosition?: string;
   office?: string;
   direction: string;
   cardSummary: string;
@@ -64,8 +65,11 @@ export type StudentMember = {
   name: string;
   email: string;
   role: string;
+  school: string;
+  cohort: string;
   summary: string;
   portrait?: string;
+  portraitPosition?: string;
 };
 
 export type JoinCategory = {
@@ -73,9 +77,17 @@ export type JoinCategory = {
   details: string;
 };
 
+export type ResearchPlatform = {
+  title: string;
+  summary: string;
+  details: string;
+  image: string;
+};
+
 export const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/research", label: "Research" },
+  { href: "/research-team", label: "Research Team" },
   { href: "/join-us", label: "Join Us" },
 ];
 
@@ -91,14 +103,14 @@ export const siteMeta = {
 
 export const homeCards: HomeCard[] = [
   {
-    href: "/research#faculty",
+    href: "/research",
     title: "Research",
-    summary: "Faculty leadership, research directions, and paper-by-paper summaries of recent results.",
+    summary: "Selected achievements and the experimental platforms supporting SSQS research.",
   },
   {
-    href: "/research#students",
-    title: "People & Training",
-    summary: "Student researchers, photo placeholders for future updates, and the training structure of the lab.",
+    href: "/research-team",
+    title: "Research Team",
+    summary: "Faculty leads and student researchers, with profile space reserved for portraits and individual details.",
   },
   {
     href: "/join-us",
@@ -132,6 +144,7 @@ export const facultyMembers: FacultyMember[] = [
     role: "Associate Researcher",
     email: "zhongmanjin@iqasz.cn",
     portrait: "/assets/faculty/manjin-zhong.jpg",
+    portraitPosition: "center 18%",
     office: "College of Science, Institute for Quantum Science and Engineering, Southern University of Science and Technology",
     direction:
       "Rare-earth-ion-doped solid-state quantum memory, long-lived coherence, and precision spectroscopy.",
@@ -189,6 +202,7 @@ export const facultyMembers: FacultyMember[] = [
     role: "Associate Researcher",
     email: "liushuping@iqasz.cn",
     portrait: "/assets/faculty/shuping-liu.jpg",
+    portraitPosition: "center 12%",
     office: "Room 325, Shenzhen International Quantum Academy",
     direction:
       "Rare earth-doped optical functional materials, solid-state quantum storage, quantum communication, and quantum computing.",
@@ -247,6 +261,7 @@ export const facultyMembers: FacultyMember[] = [
     role: "Associate Researcher",
     email: "fdwang.phys@foxmail.com",
     portrait: "/assets/faculty/fudong-wang.jpg",
+    portraitPosition: "center 14%",
     office: "Room 327, Shenzhen International Quantum Academy",
     direction: "Quantum optics and quantum memory implemented in rare-earth-based solid-state materials.",
     cardSummary:
@@ -301,7 +316,7 @@ export const facultyMembers: FacultyMember[] = [
 
 export const facultyContacts = facultyMembers.map((member) => ({
   email: member.email,
-  href: `/research/${member.slug}`,
+  href: `/research-team/${member.slug}`,
   name: member.name,
 }));
 
@@ -403,26 +418,34 @@ export const publications: Publication[] = [
   },
 ];
 
-export const cultivationTracks: CultivationTrack[] = [
+export const researchPlatforms: ResearchPlatform[] = [
   {
-    title: "Research-led training",
-    summary:
-      "Students learn through active projects in spectroscopy, quantum memory experiments, low-temperature optics, materials preparation, and data analysis rather than through isolated classroom exercises alone.",
+    title: "Cryogenic Optical Spectroscopy Platform",
+    summary: "A low-temperature optics platform for coherence measurements, spectroscopy, and quantum-memory-relevant experiments in rare-earth systems.",
+    details:
+      "This platform supports long-coherence measurements, stable optical addressing, and experimental routines required for solid-state quantum storage studies.",
+    image: "/assets/lab/cryogenic-optics-lab.png",
   },
   {
-    title: "Progressive experimental practice",
-    summary:
-      "Training typically moves from literature reading and optics basics to instrument operation, measurement workflows, troubleshooting, and independent experiment design.",
+    title: "Solid-State Quantum Memory Setup",
+    summary: "An integrated optical setup for rare-earth-ion quantum memory experiments, control sequences, and benchmarking of storage performance.",
+    details:
+      "The platform links laser control, sample handling, and detection workflows needed to evaluate memory lifetime, efficiency, and coherence preservation.",
+    image: "/assets/lab/movable-solid-state-memory.png",
   },
   {
-    title: "Scientific communication",
-    summary:
-      "Group meetings, paper discussions, writing practice, and presentation feedback are treated as part of research training, not as optional extras.",
+    title: "Crystal and Material Preparation Environment",
+    summary: "Laboratory infrastructure for rare-earth materials preparation, host evaluation, and sample development connected to coherence studies.",
+    details:
+      "This part of the laboratory supports the transition from materials preparation to optical characterization and device-oriented screening.",
+    image: "/assets/lab/crystal-growth-lab.png",
   },
   {
-    title: "Interdisciplinary development",
-    summary:
-      "The lab encourages students to connect quantum optics, spectroscopy, materials, numerical analysis, and experimental automation in a single research trajectory.",
+    title: "Rare-Earth Micro and Nano Material Study",
+    summary: "Device-oriented material exploration for micro and nano rare-earth systems with relevance to future scalable quantum platforms.",
+    details:
+      "The platform reflects SSQS interests beyond bulk crystals, extending toward smaller-scale materials and integration-oriented structures.",
+    image: "/assets/lab/rare-earth-nanocrystal.png",
   },
 ];
 
@@ -431,48 +454,64 @@ export const studentMembers: StudentMember[] = [
     name: "Weiye Sun",
     email: "12331503@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "2023 Cohort",
     summary: "Working on rare-earth quantum memory experiments, coherence measurements, and solid-state spectroscopy.",
   },
   {
     name: "Miaomiao Ren",
     email: "12231257@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "2022 Cohort",
     summary: "Contributing to optical coherence studies, spectroscopy workflows, and quantum-memory-oriented experiments.",
   },
   {
     name: "Mucheng Guo",
     email: "12331502@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "2023 Cohort",
     summary: "Focusing on rare-earth coherence physics, memory design questions, and materials-driven experimental studies.",
   },
   {
     name: "Zhenqi Xu",
     email: "12333060@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "2023 Cohort",
     summary: "Supporting host characterization, spectroscopy measurements, and rare-earth material evaluation.",
   },
   {
     name: "Zhehao Xu",
     email: "12333073@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "Cohort to be updated",
     summary: "Working on experimental measurements and data analysis related to rare-earth-ion-doped solid-state systems.",
   },
   {
     name: "Xingmin He",
     email: "12531198@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "Cohort to be updated",
     summary: "Engaged in quantum-memory experiments, laboratory practice, and steadily expanding project ownership.",
   },
   {
     name: "Yuxin Zhang",
     email: "12532267@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "2025 Cohort",
     summary: "Preparing to contribute to optics, spectroscopy, and quantum-storage-related experimental work in SSQS.",
   },
   {
     name: "Hanwen Liang",
     email: "12543047@mail.sustech.edu.cn",
     role: "Graduate Researcher",
+    school: "Southern University of Science and Technology",
+    cohort: "Cohort to be updated",
     summary: "Developing research skills through rare-earth materials work, measurements, and quantitative analysis.",
   },
 ];

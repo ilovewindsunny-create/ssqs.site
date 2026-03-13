@@ -333,6 +333,10 @@ img {
   color: var(--blue-900);
 }
 
+.sidebar-link-top {
+  position: relative;
+}
+
 .sidebar-heading {
   font-family: var(--font-serif);
   font-size: 1.1rem;
@@ -361,6 +365,12 @@ img {
   color: #fff;
 }
 
+.sidebar-link-top.active {
+  background: var(--blue-900);
+  color: #fff;
+}
+
+.sidebar-link-top.active::after,
 .sidebar-link-sub.active::after {
   content: "";
   position: absolute;
@@ -574,11 +584,12 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .student-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -599,7 +610,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 170px;
+  min-height: 196px;
   background: linear-gradient(180deg, #f7fafc 0%, #edf3f9 100%);
 }
 
@@ -644,6 +655,16 @@ img {
 .student-card p {
   margin: 10px 0 0;
   color: var(--muted);
+}
+
+.student-meta {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.student-meta p {
+  margin: 0;
 }
 
 .faculty-card-copy h3 a {
@@ -694,6 +715,44 @@ img {
 .publication-stack {
   display: grid;
   gap: 20px;
+}
+
+.platform-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.platform-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.platform-image {
+  position: relative;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.platform-copy {
+  padding: 24px;
+}
+
+.platform-copy h3 {
+  margin: 0;
+  color: var(--blue-900);
+  font-family: var(--font-serif);
+  font-size: 1.72rem;
+  line-height: 1.14;
+}
+
+.platform-copy p {
+  margin: 12px 0 0;
+  color: var(--muted);
 }
 
 .publication-card {
@@ -952,6 +1011,10 @@ img {
   }
 
   .publication-card {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-card {
     grid-template-columns: 1fr;
   }
 

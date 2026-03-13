@@ -25,7 +25,7 @@ export default function HomePage() {
           <p className="hero-text light">{siteMeta.summary}</p>
           <div className="action-row">
             <Link href="/research">Research</Link>
-            <Link href="/join-us">Join Us</Link>
+            <Link href="/research-team">Research Team</Link>
           </div>
         </div>
       </section>
