@@ -607,10 +607,11 @@ img {
 }
 
 .student-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -623,8 +624,11 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 220px;
-  padding: 16px;
+  min-height: 0;
+  padding: 12px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
   background: linear-gradient(180deg, #f7fafc 0%, #edf3f9 100%);
 }
 
@@ -656,7 +660,11 @@ img {
 }
 
 .student-card-copy {
-  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 2px 0 0;
 }
 
 .student-card h3 {
@@ -668,14 +676,14 @@ img {
 }
 
 .student-card p {
-  margin: 10px 0 0;
+  margin: 0;
   color: var(--muted);
 }
 
 .student-meta {
   display: grid;
   gap: 6px;
-  margin-top: 12px;
+  margin-top: 2px;
 }
 
 .student-meta p {
@@ -716,6 +724,11 @@ img {
 }
 
 .faculty-card-copy .action-row {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.student-card-copy .action-row {
   margin-top: auto;
   padding-top: 6px;
 }
@@ -1073,6 +1086,14 @@ img {
 
   .faculty-portrait {
     min-height: 220px;
+  }
+
+  .student-card {
+    grid-template-columns: 1fr;
+  }
+
+  .student-photo {
+    max-width: 220px;
   }
 
   .research-sidebar {

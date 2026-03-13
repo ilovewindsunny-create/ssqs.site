@@ -466,6 +466,7 @@ export const publications: Publication[] = [
     significance:
       "Defines the long-lived storage frontier of the lab and anchors the SSQS identity around coherence-limited quantum memory.",
     sourceHref: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+    image: "/assets/papers/prx-10hour-storage.png",
   },
   {
     title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
@@ -487,6 +488,7 @@ export const publications: Publication[] = [
     significance:
       "Represents the host-screening direction of the lab and the search for alternative environments with favorable coherence behavior.",
     sourceHref: "https://www.sciencedirect.com/science/article/abs/pii/S0022231325001498",
+    image: "/assets/papers/eu3-cawo4-hyperfine.png",
   },
   {
     title: "Rare-earth quantum memories: The experimental status quo",
