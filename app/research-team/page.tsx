@@ -58,12 +58,7 @@ export default function ResearchTeamPage() {
                   <article className="faculty-card faculty-card-featured" key={member.slug}>
                     <Link className="faculty-portrait-link" href={`/research-team/${member.slug}`}>
                       <div className="faculty-portrait">
-                        <img
-                          src={member.portrait}
-                          alt={member.name}
-                          loading="lazy"
-                          style={{ objectPosition: member.portraitPosition ?? "center top" }}
-                        />
+                        <img src={member.portrait} alt={member.name} loading="lazy" />
                       </div>
                     </Link>
 
@@ -99,12 +94,7 @@ export default function ResearchTeamPage() {
                   <article className="student-card" key={student.email}>
                     {student.portrait ? (
                       <div className="student-photo">
-                        <img
-                          src={student.portrait}
-                          alt={student.name}
-                          loading="lazy"
-                          style={{ objectPosition: student.portraitPosition ?? "center top" }}
-                        />
+                        <img src={student.portrait} alt={student.name} loading="lazy" />
                       </div>
                     ) : (
                       <div className="student-photo student-photo-placeholder" aria-label={`${student.name} portrait placeholder`}>

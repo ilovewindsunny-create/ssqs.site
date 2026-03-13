@@ -48,7 +48,7 @@ export default function ResearchPage() {
                           alt={paper.title}
                           fill
                           sizes="(max-width: 900px) 100vw, 28vw"
-                          className="cover-image"
+                          className="publication-figure-image"
                         />
                       </div>
                     ) : null}
@@ -96,7 +96,7 @@ export default function ResearchPage() {
                         alt={platform.title}
                         fill
                         sizes="(max-width: 900px) 100vw, 38vw"
-                        className="cover-image"
+                        className="platform-cover-image"
                       />
                     </div>
                     <div className="platform-copy">

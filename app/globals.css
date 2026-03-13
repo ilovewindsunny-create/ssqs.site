@@ -552,9 +552,9 @@ img {
 
 .faculty-card-featured {
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-columns: 116px minmax(0, 1fr);
   gap: 0;
-  align-items: stretch;
+  align-items: center;
   padding: 0;
   overflow: hidden;
 }
@@ -569,22 +569,26 @@ img {
 
 .faculty-portrait,
 .faculty-profile-portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: var(--surface-soft);
+  background: linear-gradient(180deg, #f7fafc 0%, #edf3f9 100%);
 }
 
 .faculty-portrait {
   height: 100%;
-  min-height: 182px;
-  aspect-ratio: 3 / 4;
+  min-height: 168px;
+  padding: 12px;
+  aspect-ratio: 4 / 5;
 }
 
 .faculty-portrait img,
 .faculty-profile-portrait img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .student-grid {
@@ -610,14 +614,16 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 196px;
+  min-height: 220px;
+  padding: 16px;
   background: linear-gradient(180deg, #f7fafc 0%, #edf3f9 100%);
 }
 
 .student-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .student-photo-placeholder span {
@@ -734,8 +740,15 @@ img {
 
 .platform-image {
   position: relative;
-  min-height: 250px;
+  min-height: 300px;
   overflow: hidden;
+  background: linear-gradient(180deg, #f9fbfd 0%, #eef4f9 100%);
+}
+
+.platform-cover-image {
+  object-fit: contain;
+  object-position: center center;
+  padding: 24px 26px;
 }
 
 .platform-copy {
@@ -766,8 +779,15 @@ img {
 }
 
 .publication-media {
+  position: relative;
   min-height: 260px;
-  background: var(--surface-soft);
+  background: linear-gradient(180deg, #f8fbfd 0%, #edf4f9 100%);
+}
+
+.publication-figure-image {
+  object-fit: contain;
+  object-position: center center;
+  padding: 18px 20px;
 }
 
 .publication-copy {
@@ -854,13 +874,14 @@ img {
 
 .faculty-profile-portrait {
   aspect-ratio: 4 / 5;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
 }
 
 .faculty-profile-portrait-compact {
-  max-width: 248px;
+  max-width: 220px;
   justify-self: end;
 }
 
@@ -886,7 +907,7 @@ img {
 
 .faculty-detail-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 248px;
+  grid-template-columns: minmax(0, 1fr) 220px;
   gap: 28px;
   align-items: start;
 }

@@ -87,11 +87,7 @@ export default async function FacultyProfilePage({ params }: FacultyProfileProps
               </div>
 
               <div className="faculty-profile-portrait faculty-profile-portrait-compact">
-                <img
-                  src={member.portrait}
-                  alt={member.name}
-                  style={{ objectPosition: member.portraitPosition ?? "center top" }}
-                />
+                <img src={member.portrait} alt={member.name} />
               </div>
             </section>
 
@@ -132,7 +128,7 @@ export default async function FacultyProfilePage({ params }: FacultyProfileProps
             </section>
 
             <section className="detail-section">
-              <h2>Selected Publications</h2>
+              <h2>Papers</h2>
               <div className="profile-publication-list">
                 {member.selectedWorks.map((work) => (
                   <article className="info-card profile-publication-card" key={work.title}>
@@ -152,7 +148,10 @@ export default async function FacultyProfilePage({ params }: FacultyProfileProps
 
             <section className="detail-section detail-section-source">
               <h2>Official Source</h2>
-              <p>This SSQS profile is organized from public faculty information and keeps a direct reference to the official page.</p>
+              <p>
+                This SSQS profile is organized from public faculty information and the paper list shown on the official
+                faculty page, with a direct reference kept here for verification.
+              </p>
               <div className="action-row action-row-compact">
                 <a href={member.officialHref} target="_blank" rel="noreferrer">
                   Official profile
