@@ -15,6 +15,15 @@ export type Highlight = {
   summary: string;
 };
 
+export type NewsItem = {
+  date: string;
+  category: string;
+  title: string;
+  summary: string;
+  image: string;
+  href?: string;
+};
+
 export type FacultyPublication = {
   title: string;
   citation: string;
@@ -134,6 +143,36 @@ export const homeHighlights: Highlight[] = [
     year: "2025",
     title: "Ceramic route for quantum memories",
     summary: "Eu3+:Y2O3 oxide ceramics show that scalable materials can still preserve strong coherence properties.",
+  },
+];
+
+export const newsItems: NewsItem[] = [
+  {
+    date: "2026",
+    category: "Publication",
+    title: "SSQS advances a telecom-compatible rare-earth pathway for future quantum nodes",
+    summary:
+      "A new npj Quantum Information paper highlights erbium-doped stoichiometric EuCl3 hydrate crystals as a promising route from memory-oriented spectroscopy toward network-compatible solid-state quantum nodes.",
+    image: "/assets/papers/erbium-eucl3-node.png",
+    href: "https://www.nature.com/articles/s41534-026-01203-4",
+  },
+  {
+    date: "2025",
+    category: "Publication",
+    title: "PRX Quantum reports nuclear-spin coherence beyond ten hours in a solid",
+    summary:
+      "SSQS work in PRX Quantum establishes one of the strongest solid-state coherence benchmarks relevant to long-term quantum storage and long-lived rare-earth quantum memories.",
+    image: "/assets/papers/prx-10hour-storage.png",
+    href: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+  },
+  {
+    date: "2025",
+    category: "Publication",
+    title: "Quantum-memory studies expand from single crystals to oxide ceramics",
+    summary:
+      "A Communications Physics paper shows that Eu3+:Y2O3 ceramics can retain long-lived optical coherence and spin lifetimes, strengthening the lab's scalable-materials direction.",
+    image: "/assets/papers/eu3-y2o3-ceramics.png",
+    href: "https://www.nature.com/articles/s42005-025-02259-y",
   },
 ];
 

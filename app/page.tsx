@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "./components/page-shell";
-import { homeCards, homeHighlights, publications, siteMeta } from "./site-data";
+import { homeCards, homeHighlights, newsItems, publications, siteMeta } from "./site-data";
 
 export default function HomePage() {
   return (
@@ -31,6 +31,42 @@ export default function HomePage() {
       </section>
 
       <main className="site-width page-content">
+        <section className="content-section home-news-section" id="news">
+          <div className="section-heading">
+            <p className="eyebrow">News</p>
+            <h2>Recent updates from SSQS</h2>
+            <p className="section-text">
+              This section is reserved for publication announcements, honors, group milestones, conference activity,
+              graduating students, and other updates from the laboratory.
+            </p>
+          </div>
+
+          <div className="news-grid">
+            {newsItems.map((item) => (
+              <article className="news-card" key={`${item.date}-${item.title}`}>
+                <div className="news-image">
+                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 900px) 100vw, 31vw" className="news-cover-image" />
+                </div>
+                <div className="news-copy">
+                  <p className="publication-meta">
+                    {item.category} | {item.date}
+                  </p>
+                  <h3>{item.title}</h3>
+                  <p>{item.summary}</p>
+                  <div className="action-row action-row-compact">
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noreferrer">
+                        Source
+                      </a>
+                    ) : null}
+                    <Link href="/research">Research</Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="card-grid">
           {homeCards.map((item) => (
             <Link className="entry-card" href={item.href} key={item.href}>
