@@ -1,0 +1,454 @@
+export type NavItem = {
+  href: string;
+  label: string;
+};
+
+export type HomeCard = {
+  href: string;
+  title: string;
+  summary: string;
+};
+
+export type Highlight = {
+  year: string;
+  title: string;
+  summary: string;
+};
+
+export type FacultyPublication = {
+  title: string;
+  citation: string;
+  href?: string;
+};
+
+export type FacultyMember = {
+  slug: string;
+  name: string;
+  role: string;
+  email: string;
+  portrait: string;
+  office?: string;
+  direction: string;
+  cardSummary: string;
+  officialHref: string;
+  bio: string[];
+  education: string[];
+  experience: string[];
+  focus: string[];
+  selectedWorks: FacultyPublication[];
+};
+
+export type ResearchTheme = {
+  title: string;
+  systems: string;
+  methods: string;
+  goal: string;
+};
+
+export type Publication = {
+  title: string;
+  venue: string;
+  year: string;
+  result: string;
+  significance: string;
+  sourceHref?: string;
+  image?: string;
+};
+
+export type CultivationTrack = {
+  title: string;
+  summary: string;
+};
+
+export type JoinCategory = {
+  title: string;
+  details: string;
+};
+
+export const navItems: NavItem[] = [
+  { href: "/", label: "Home" },
+  { href: "/research", label: "Research" },
+  { href: "/cultivation", label: "Cultivation" },
+  { href: "/join-us", label: "Join Us" },
+];
+
+export const siteMeta = {
+  shortName: "SSQS",
+  groupName: "Solid-State Quantum Storage Laboratory",
+  institution: "Shenzhen Institute for Quantum Science and Engineering, Southern University of Science and Technology",
+  location: "Shenzhen, China",
+  headline: "Rare-earth quantum memories for long coherence and network-ready interfaces.",
+  summary:
+    "We investigate rare-earth-ion-doped materials for quantum memory, coherence spectroscopy, and scalable solid-state interfaces, with a focus on long-lived storage and experimentally grounded routes toward future quantum networks.",
+};
+
+export const homeCards: HomeCard[] = [
+  {
+    href: "/research",
+    title: "Research",
+    summary: "Faculty, specific research directions, and paper-by-paper summaries of recent results.",
+  },
+  {
+    href: "/cultivation",
+    title: "Cultivation",
+    summary: "How students are trained through literature, laboratory practice, group meetings, and writing.",
+  },
+  {
+    href: "/join-us",
+    title: "Join Us",
+    summary: "Open routes for students, engineers, postdoctoral researchers, and collaborators.",
+  },
+];
+
+export const homeHighlights: Highlight[] = [
+  {
+    year: "2026",
+    title: "Telecom-compatible node pathway",
+    summary: "Erbium-doped stoichiometric materials extend the roadmap from storage physics to quantum-network interfaces.",
+  },
+  {
+    year: "2025",
+    title: "Ultra-long coherence in a solid",
+    summary: "Nuclear-spin coherence beyond 10 hours defines the long-storage frontier of the lab.",
+  },
+  {
+    year: "2025",
+    title: "Ceramic route for quantum memories",
+    summary: "Eu3+:Y2O3 oxide ceramics show that scalable materials can still preserve strong coherence properties.",
+  },
+];
+
+export const facultyMembers: FacultyMember[] = [
+  {
+    slug: "manjin-zhong",
+    name: "Manjin Zhong",
+    role: "Associate Researcher",
+    email: "zhongmanjin@iqasz.cn",
+    portrait: "/assets/faculty/manjin-zhong.jpg",
+    office: "College of Science, Institute for Quantum Science and Engineering, Southern University of Science and Technology",
+    direction:
+      "Rare-earth-ion-doped solid-state quantum memory, long-lived coherence, and precision spectroscopy.",
+    cardSummary:
+      "Leads SSQS research on rare-earth quantum memories, coherence benchmarking, and solid-state interfaces for long-term storage.",
+    officialHref: "https://faculty.sustech.edu.cn/zhongmj/en/",
+    bio: [
+      "Manjin Zhong leads SSQS research on rare-earth-ion-doped solid-state quantum memories, long-lived coherence, and precision spectroscopy in solid hosts.",
+      "His academic path connects Xiamen University, the Laser Physics Centre at the Australian National University, and postdoctoral work at ANU before joining SUSTech, giving the group a strong foundation in both fundamental spectroscopy and quantum-memory-oriented experiments.",
+    ],
+    education: [
+      "B.S., Xiamen University",
+      "M.S., Xiamen University",
+      "Ph.D., Laser Physics Centre, Australian National University",
+    ],
+    experience: [
+      "Associate Researcher, College of Science and Institute for Quantum Science and Engineering, Southern University of Science and Technology",
+      "Postdoctoral Researcher, Laser Physics Centre, Australian National University",
+    ],
+    focus: [
+      "Rare-earth-ion quantum memories in solid-state hosts",
+      "Optical and hyperfine coherence in Eu-based systems",
+      "Long-term storage architectures for future quantum networks",
+    ],
+    selectedWorks: [
+      {
+        title: "Nuclear Spins in a Solid Exceeding 10-Hour Coherence Times for Ultra-Long-Term Quantum Storage",
+        citation:
+          "F. Wang, M. Ren, W. Sun, M. Guo, M. J. Sellars, R. L. Ahlefeldt, J. G. Bartholomew, J. Yao, S. Liu, and M. Zhong, PRX Quantum 6, 010302 (2025).",
+        href: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+      },
+      {
+        title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
+        citation:
+          "S. Liu, M. Ren, W. Xiao, J. Wang, Y. Liu, D. Serrano, P. Goldner, D. Tang, X. An, F. Wang, and M. Zhong, Communications Physics 8, 338 (2025).",
+        href: "https://www.nature.com/articles/s42005-025-02259-y",
+      },
+      {
+        title: "Optical coherence and hyperfine structure of the 7F0<->5D0 transition in Eu3+:CaWO4",
+        citation:
+          "X. An, W. Sun, Z. Xu, W. Xiao, M. Ren, M. Guo, S. Liu, F. Wang, and M. Zhong, Journal of Luminescence 281, 121209 (2025).",
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S0022231325001498",
+      },
+      {
+        title: "Rare-earth quantum memories: The experimental status quo",
+        citation:
+          "M. Guo, S. Liu, W. Sun, M. Ren, F. Wang, and M. Zhong, Frontiers of Physics 18, 21303 (2023).",
+        href: "https://journal.hep.com.cn/fop/EN/10.1007/s11467-022-1240-8",
+      },
+    ],
+  },
+  {
+    slug: "shuping-liu",
+    name: "Shuping Liu",
+    role: "Associate Researcher",
+    email: "liushuping@iqasz.cn",
+    portrait: "/assets/faculty/shuping-liu.jpg",
+    office: "Room 325, Shenzhen International Quantum Academy",
+    direction:
+      "Rare earth-doped optical functional materials, solid-state quantum storage, quantum communication, and quantum computing.",
+    cardSummary:
+      "Builds the materials side of SSQS, spanning rare-earth-doped crystals, oxide ceramics, and coherence-oriented photonic platforms.",
+    officialHref: "https://www.sziqa.ac.cn/en/category/1089/detail/6956",
+    bio: [
+      "Shuping Liu conducts research in solid-state quantum memory, quantum communication, and quantum computing, with a particular focus on rare-earth-doped photonic materials, high-resolution spectroscopic characterization, and coherent control.",
+      "Her work bridges materials preparation, microstructure engineering, and coherence benchmarking, helping SSQS connect quantum-memory physics with practical rare-earth material platforms and devices.",
+    ],
+    education: [
+      "2011.09-2016.06, Ph.D., Shanghai Institute of Ceramics, Chinese Academy of Sciences",
+      "2014.10-2015.10, Joint supervision, Institute of Physics, Academy of Sciences of the Czech Republic",
+      "2011.09-2012.07, Joint supervision, University of Science and Technology of China",
+      "2007.09-2011.06, B.E., School of Materials Science and Engineering, Wuhan University of Technology",
+    ],
+    experience: [
+      "2023.02-present, Associate Researcher, Shenzhen International Quantum Academy",
+      "2019.08-2023.01, Research Assistant Professor, Southern University of Science and Technology",
+      "2017.02-2019.07, Postdoctoral Researcher, CNRS / ENSCP / PSL University",
+    ],
+    focus: [
+      "Rare-earth crystals and oxide ceramics",
+      "Material optimization for optical coherence and spin lifetime",
+      "Micro and nano rare-earth platforms for scalable devices",
+    ],
+    selectedWorks: [
+      {
+        title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
+        citation:
+          "S. Liu, M. Ren, W. Xiao, J. Wang, Y. Liu, D. Serrano, P. Goldner, D. Tang, X. An, F. Wang, and M. Zhong, Communications Physics 8, 338 (2025).",
+        href: "https://www.nature.com/articles/s42005-025-02259-y",
+      },
+      {
+        title: "Optical coherence and hyperfine structure of the 7F0<->5D0 transition in Eu3+:CaWO4",
+        citation:
+          "X. An, W. Sun, Z. Xu, W. Xiao, M. Ren, M. Guo, S. Liu, F. Wang, and M. Zhong, Journal of Luminescence 281, 121209 (2025).",
+        href: "https://www.sciencedirect.com/science/article/abs/pii/S0022231325001498",
+      },
+      {
+        title: "Defect Engineering for Quantum Grade Rare-Earth Nanocrystals",
+        citation: "S. Liu, A. Fossati, D. Serrano, A. Tallaire, A. Ferrier, and P. Goldner, ACS Nano 14, 9953-9962 (2020).",
+        href: "https://pubs.acs.org/doi/10.1021/acsnano.0c03384",
+      },
+      {
+        title: "Dynamic control of Purcell enhanced emission of erbium ions in nanoparticles",
+        citation:
+          "B. Casabone, C. Deshmukh, S. Liu, D. Serrano, A. Ferrier, T. Hummer, P. Goldner, D. Hunger, and H. de Riedmatten, Nature Communications 12, 3570 (2021).",
+        href: "https://www.nature.com/articles/s41467-021-23818-5",
+      },
+    ],
+  },
+  {
+    slug: "fudong-wang",
+    name: "Fudong Wang",
+    role: "Associate Researcher",
+    email: "fdwang.phys@foxmail.com",
+    portrait: "/assets/faculty/fudong-wang.jpg",
+    office: "Room 327, Shenzhen International Quantum Academy",
+    direction: "Quantum optics and quantum memory implemented in rare-earth-based solid-state materials.",
+    cardSummary:
+      "Advances the coherence, cavity, and instrumentation side of SSQS, especially for rare-earth-based solid-state quantum memory experiments.",
+    officialHref: "https://www.sziqa.ac.cn/en/category/1089/detail/7026",
+    bio: [
+      "Fudong Wang focuses on quantum optics, particularly quantum memory implemented in rare-earth-based solid-state materials.",
+      "His recent work emphasizes ultralong coherence, ultra-high-efficiency quantum memories, optical and microwave cavity coupling with rare-earth ions, and the search for new materials for solid-state quantum storage.",
+    ],
+    education: [
+      "2011.08-2016.06, Ph.D., Chinese University of Hong Kong",
+      "2007.09-2011.06, B.S., University of Science and Technology of China",
+    ],
+    experience: [
+      "2025.02-present, Associate Researcher, Shenzhen International Quantum Academy",
+      "2018.11-2025.01, Assistant Researcher, Southern University of Science and Technology",
+      "2016.10-2018.09, Postdoctoral Researcher, University of Toronto",
+    ],
+    focus: [
+      "Quantum optics and rare-earth solid-state memory",
+      "Coherence engineering and cavity-coupled rare-earth ions",
+      "Experimental instrumentation for ultralong storage",
+    ],
+    selectedWorks: [
+      {
+        title: "Nuclear Spins in a Solid Exceeding 10-Hour Coherence Times for Ultra-Long-Term Quantum Storage",
+        citation:
+          "F. Wang, M. Ren, W. Sun, M. Guo, M. J. Sellars, R. L. Ahlefeldt, J. G. Bartholomew, J. Yao, S. Liu, and M. Zhong, PRX Quantum 6, 010302 (2025).",
+        href: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+      },
+      {
+        title: "Decoherence characterization and quantum memory design in 167Er3+:Y2SiO5",
+        citation:
+          "M. Guo, Q. Li, Z. Xu, S. Liu, F. Wang, and M. Zhong, Frontiers of Physics 21, 033201 (2026).",
+        href: "https://doi.org/10.15302/frontphys.2026.033201",
+      },
+      {
+        title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
+        citation:
+          "S. Liu, M. Ren, W. Xiao, J. Wang, Y. Liu, D. Serrano, P. Goldner, D. Tang, X. An, F. Wang, and M. Zhong, Communications Physics 8, 338 (2025).",
+        href: "https://www.nature.com/articles/s42005-025-02259-y",
+      },
+      {
+        title: "Rare-earth quantum memories: The experimental status quo",
+        citation:
+          "M. Guo, S. Liu, W. Sun, M. Ren, F. Wang, and M. Zhong, Frontiers of Physics 18, 21303 (2023).",
+        href: "https://journal.hep.com.cn/fop/EN/10.1007/s11467-022-1240-8",
+      },
+    ],
+  },
+];
+
+export const facultyContacts = facultyMembers.map((member) => ({
+  email: member.email,
+  href: `/research/${member.slug}`,
+  name: member.name,
+}));
+
+export function getFacultyMember(slug: string) {
+  return facultyMembers.find((member) => member.slug === slug);
+}
+
+export const researchThemes: ResearchTheme[] = [
+  {
+    title: "Long-Lived Rare-Earth Quantum Memories",
+    systems: "Eu3+-based solid-state hosts relevant to optical and hyperfine storage.",
+    methods: "Cryogenic optical spectroscopy, coherence measurements, and quantum-memory-relevant control protocols.",
+    goal: "Push storage lifetimes and coherence benchmarks that matter for real solid-state quantum memories.",
+  },
+  {
+    title: "Coherence Spectroscopy and Structure",
+    systems: "Rare-earth-ion-doped crystals and new hosts with narrow optical transitions.",
+    methods: "Hyperfine-structure analysis, spectral characterization, and spin-dynamics measurements.",
+    goal: "Understand the microscopic origins of decoherence and identify what limits storage fidelity and lifetime.",
+  },
+  {
+    title: "New Material Platforms",
+    systems: "Single crystals, oxide ceramics, and micro or nano rare-earth materials.",
+    methods: "Host screening, material processing, and coherence benchmarking across scalable platforms.",
+    goal: "Bridge benchmark coherence studies with materials that are easier to fabricate, process, or integrate.",
+  },
+  {
+    title: "Toward Quantum Network Interfaces",
+    systems: "Erbium-doped and stoichiometric rare-earth platforms with telecom relevance.",
+    methods: "Interface-oriented spectroscopy, materials engineering, and architecture-driven platform design.",
+    goal: "Move from isolated memory demonstrations toward network-compatible solid-state quantum nodes.",
+  },
+];
+
+export const publications: Publication[] = [
+  {
+    title: "Towards telecom-compatible quantum nodes using erbium-doped stoichiometric EuCl3 hydrate crystals",
+    venue: "npj Quantum Information",
+    year: "2026",
+    result:
+      "Introduces an erbium-doped stoichiometric rare-earth platform aimed at telecom-compatible solid-state quantum nodes.",
+    significance:
+      "This is the clearest step from long-lived storage physics toward deployable quantum-network interfaces.",
+    sourceHref: "https://www.nature.com/articles/s41534-026-01203-4",
+    image: "/assets/papers/erbium-eucl3-node.png",
+  },
+  {
+    title: "Nuclear Spins in a Solid Exceeding 10-Hour Coherence Times for Ultra-Long-Term Quantum Storage",
+    venue: "PRX Quantum",
+    year: "2025",
+    result:
+      "Demonstrates nuclear-spin coherence beyond 10 hours in a rare-earth solid, one of the strongest storage-time benchmarks for a solid-state quantum-memory-relevant system.",
+    significance:
+      "Defines the long-lived storage frontier of the lab and anchors the SSQS identity around coherence-limited quantum memory.",
+    sourceHref: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+  },
+  {
+    title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
+    venue: "Communications Physics",
+    year: "2025",
+    result:
+      "Shows that Eu3+:Y2O3 ceramics can support strong optical coherence and long-lived spin states relevant to quantum memory.",
+    significance:
+      "Expands the lab's platform portfolio beyond high-quality single crystals and points toward more scalable material routes.",
+    sourceHref: "https://www.nature.com/articles/s42005-025-02259-y",
+    image: "/assets/papers/eu3-y2o3-ceramics.png",
+  },
+  {
+    title: "Optical coherence and hyperfine structure of the 7F0<->5D0 transition in Eu3+:CaWO4",
+    venue: "Journal of Luminescence",
+    year: "2025",
+    result:
+      "Characterizes optical coherence and hyperfine structure in Eu3+:CaWO4, establishing a new host candidate for rare-earth coherence studies.",
+    significance:
+      "Represents the host-screening direction of the lab and the search for alternative environments with favorable coherence behavior.",
+    sourceHref: "https://www.sciencedirect.com/science/article/abs/pii/S0022231325001498",
+  },
+  {
+    title: "Rare-earth quantum memories: The experimental status quo",
+    venue: "Frontiers of Physics",
+    year: "2023",
+    result:
+      "Provides a concise review of experimental rare-earth quantum memories, including protocols, materials, limitations, and opportunities.",
+    significance:
+      "Positions the lab within the field and offers a clean conceptual entry point for students, collaborators, and supporters.",
+    sourceHref: "https://journal.hep.com.cn/fop/EN/10.1007/s11467-022-1240-8",
+    image: "/assets/papers/rare-earth-quantum-memory-review.png",
+  },
+  {
+    title: "Quantum coherence and applications of micro and nano rare-earth-doped crystals: recent progress",
+    venue: "Acta Physica Sinica",
+    year: "2023",
+    result:
+      "Reviews the coherence properties and application routes of micro and nano rare-earth-doped materials.",
+    significance:
+      "Shows how the lab's interests extend from benchmark memory materials to miniaturized and device-oriented platforms.",
+    sourceHref: "https://wulixb.iphy.ac.cn/en/article/id/2ebe7c11-57d7-4e29-9803-241f2877068c",
+    image: "/assets/papers/micro-nano-rare-earth-review.png",
+  },
+];
+
+export const cultivationTracks: CultivationTrack[] = [
+  {
+    title: "Research-led training",
+    summary:
+      "Students learn through active projects in spectroscopy, quantum memory experiments, low-temperature optics, materials preparation, and data analysis rather than through isolated classroom exercises alone.",
+  },
+  {
+    title: "Progressive experimental practice",
+    summary:
+      "Training typically moves from literature reading and optics basics to instrument operation, measurement workflows, troubleshooting, and independent experiment design.",
+  },
+  {
+    title: "Scientific communication",
+    summary:
+      "Group meetings, paper discussions, writing practice, and presentation feedback are treated as part of research training, not as optional extras.",
+  },
+  {
+    title: "Interdisciplinary development",
+    summary:
+      "The lab encourages students to connect quantum optics, spectroscopy, materials, numerical analysis, and experimental automation in a single research trajectory.",
+  },
+];
+
+export const currentStudents = [
+  "Weiye Sun",
+  "Miaomiao Ren",
+  "Mucheng Guo",
+  "Zhenqi Xu",
+  "Zehao Xu",
+  "Xingmin He",
+  "Yuxin Zhang",
+  "Hanwen Liang",
+];
+
+export const joinCategories: JoinCategory[] = [
+  {
+    title: "Students",
+    details:
+      "We welcome students who are motivated by quantum information, optics, spectroscopy, materials, cryogenic experiments, or scientific programming. A strong willingness to learn experimental work matters as much as prior specialization.",
+  },
+  {
+    title: "Engineers",
+    details:
+      "Applicants with strengths in optics, mechanics, control electronics, automation, instrumentation, or laboratory system integration are especially valuable for building stable experimental platforms.",
+  },
+  {
+    title: "Postdoctoral researchers",
+    details:
+      "We are interested in researchers who can lead experiments, shape new material directions, and help bridge coherence physics with scalable solid-state quantum technology.",
+  },
+  {
+    title: "How to apply",
+    details:
+      "Please prepare a CV, a brief statement of research interests, and supporting material such as transcripts or publications. Initial contact can be made by email to the relevant faculty member.",
+  },
+];
