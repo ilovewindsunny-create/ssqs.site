@@ -10,3 +10,5 @@ tsconfig.tsbuildinfo
 /lab-media/
 /public/pdfs/
 *.pdf
+/gmail.txt
+/guandance.txt
