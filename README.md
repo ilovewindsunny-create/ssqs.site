@@ -355,6 +355,48 @@ image: "/assets/papers/xxx.png"
 - 承办会议
 - 工程或实验平台进展
 
+新增一条首页 News 时，最简单的方法是直接把 `homeNews` 改成下面这种格式：
+
+```ts
+export const homeNews = {
+  date: "March 2026",
+  category: "Publication",
+  title: "SSQS publishes a new result on rare-earth quantum memory materials",
+  summary:
+    "Our group reports a new publication on coherence properties in rare-earth-ion-doped materials, extending SSQS research on solid-state quantum storage and network-ready interfaces.",
+  image: "/assets/papers/prx-10hour-storage.png",
+  href: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+};
+```
+
+你实际修改时，只需要替换这 6 项：
+
+- `date`
+  新闻时间，例如 `March 2026`
+- `category`
+  类型，例如 `Publication`、`Award`、`Conference`、`Graduation`
+- `title`
+  新闻标题
+- `summary`
+  简短摘要，建议 1 到 3 句
+- `image`
+  配图路径，图片文件先放到 `public/assets/lab` 或 `public/assets/papers`
+- `href`
+  外部链接，可填论文页、会议页、获奖公告页；如果暂时没有链接，也可以删掉这一行
+
+如果你要发“学生顺利毕业”这样的新闻，可以参考这个版本：
+
+```ts
+export const homeNews = {
+  date: "June 2026",
+  category: "Graduation",
+  title: "A graduate member of SSQS successfully completed the degree program",
+  summary:
+    "The group congratulates our graduating student on completing the degree and wishes them continued success in future research and professional development.",
+  image: "/assets/lab/cryogenic-optics-lab.png",
+};
+```
+
 ---
 
 ### 4.7 修改实验平台
