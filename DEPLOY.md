@@ -1,20 +1,20 @@
 # SSQS Deployment Notes
 
-This project is ready to be deployed to the server at `111.230.186.141`.
+This project is ready to be deployed to the server that hosts `ssqs.site`.
 
 Because this is a public cloud server, the quickest route is:
 
 1. Upload the release package to the server
 2. Extract it into `/var/www/ssqs/current`
 3. Run the install script once
-4. Let visitors open `http://111.230.186.141`
+4. Let visitors open `http://ssqs.site`
 
 ## 1. Assumptions
 
 - Ubuntu or another Debian-like Linux distribution
 - SSH access is available on port `22`
 - The app will run behind `nginx`
-- The website will initially be available from the server IP
+- The website will be served from the domain `ssqs.site`
 
 ## 2. Install system packages
 
@@ -146,14 +146,14 @@ If you later add HTTPS, also open port `443`.
 Open:
 
 ```text
-http://111.230.186.141
+http://ssqs.site
 ```
 
 ## 9. Add a domain and HTTPS later
 
-After a domain is pointed to the server IP:
+After the domain is pointed to the server:
 
-1. Replace `server_name 111.230.186.141 _;` in `deploy/ssqs.nginx.conf`
+1. Confirm `server_name ssqs.site www.ssqs.site;` in `deploy/ssqs.nginx.conf`
 2. Reload nginx
 3. Install HTTPS with Certbot
 

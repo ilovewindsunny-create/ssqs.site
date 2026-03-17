@@ -83,4 +83,4 @@ install_reverse_proxy_config
 echo "[7/7] Final checks..."
 sudo systemctl --no-pager --full status ssqs || true
 echo
-echo "Site should now be reachable at: http://111.230.186.141"
+echo "Site should now be reachable at: http://ssqs.site"
