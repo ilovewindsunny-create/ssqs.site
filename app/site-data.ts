@@ -103,7 +103,7 @@ export const navItems: NavItem[] = [
 export const siteMeta = {
   shortName: "SSQS",
   groupName: "Solid-State Quantum Storage Laboratory",
-  institution: "Hefei National Laboratory, Shenzhen International Quantum Academy",
+  institution: "International Quantum Academy, and Shenzhen Branch, Hefei National Laboratory, Shenzhen",
   location: "Shenzhen, China",
   headline: "Rare-earth quantum memories for long coherence and network-ready interfaces.",
   summary:
