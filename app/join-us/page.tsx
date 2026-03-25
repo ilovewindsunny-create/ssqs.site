@@ -13,7 +13,7 @@ export default function JoinUsPage() {
       <PageHero
         eyebrow="Join Us"
         title="Openings for Students, Engineers, Postdocs, and Collaborators"
-        summary="We are especially interested in people who enjoy careful experiments, physical intuition, and long-horizon problems at the interface of quantum optics, spectroscopy, and materials."
+        summary="We are always looking for talented and passionate students and postdocs in physics, quantum science, optics, materials science, and information science to join our team and push the boundaries of the quantum world."
       />
 
       <main className="site-width page-content">
