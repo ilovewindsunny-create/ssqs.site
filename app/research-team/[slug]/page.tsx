@@ -16,8 +16,7 @@ const teamSidebarGroups: SidebarGroup[] = [
     title: "SSQS Team",
     items: [
       { key: "faculty", label: "Faculty Leads", href: "/research-team#faculty" },
-      { key: "current-students", label: "Current Students", href: "/research-team#current-students" },
-      { key: "alumni", label: "Graduated Students", href: "/research-team#alumni" },
+      { key: "students", label: "Student Researchers", href: "/research-team#students" },
     ],
   },
 ];
