@@ -39,7 +39,6 @@ export type FacultyMember = {
   portraitPosition?: string;
   office?: string;
   direction: string;
-  cardSummary: string;
   officialHref: string;
   bio: string[];
   education: string[];
@@ -167,8 +166,6 @@ export const facultyMembers: FacultyMember[] = [
     office: "Hefei National Laboratory, Shenzhen International Quantum Academy",
     direction:
       "Rare-earth-ion-doped solid-state quantum memory, long-lived coherence, and precision spectroscopy.",
-    cardSummary:
-      "Leads SSQS research on rare-earth quantum memories, coherence benchmarking, and solid-state interfaces for long-term storage.",
     officialHref: "https://faculty.sustech.edu.cn/zhongmj/en/",
     bio: [
       "Manjin Zhong leads SSQS research on rare-earth-ion-doped solid-state quantum memories, long-lived coherence, and precision spectroscopy in solid hosts.",
@@ -247,8 +244,6 @@ export const facultyMembers: FacultyMember[] = [
     office: "Room 325, Shenzhen International Quantum Academy",
     direction:
       "Rare earth-doped optical functional materials, solid-state quantum storage, quantum communication, and quantum computing.",
-    cardSummary:
-      "Builds the materials side of SSQS, spanning rare-earth-doped crystals, oxide ceramics, and coherence-oriented photonic platforms.",
     officialHref: "https://www.sziqa.ac.cn/en/category/1089/detail/6956",
     bio: [
       "Shuping Liu conducts research in solid-state quantum memory, quantum communication, and quantum computing, with a particular focus on rare-earth-doped photonic materials, high-resolution spectroscopic characterization, and coherent control.",
@@ -341,8 +336,6 @@ export const facultyMembers: FacultyMember[] = [
     portraitPosition: "center 14%",
     office: "Room 327, Shenzhen International Quantum Academy",
     direction: "Quantum optics and quantum memory implemented in rare-earth-based solid-state materials.",
-    cardSummary:
-      "Advances the coherence, cavity, and instrumentation side of SSQS, especially for rare-earth-based solid-state quantum memory experiments.",
     officialHref: "https://www.sziqa.ac.cn/en/category/1089/detail/7026",
     bio: [
       "Fudong Wang focuses on quantum optics, particularly quantum memory implemented in rare-earth-based solid-state materials.",
