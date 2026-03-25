@@ -10,7 +10,7 @@ find_openresty_container() {
     return 1
   fi
 
-  docker ps --format '{{.Names}}' | grep '^1Panel-openresty' | head -n 1
+  sudo docker ps --format '{{.Names}}' | grep '^1Panel-openresty' | head -n 1
 }
 
 install_reverse_proxy_config() {
@@ -19,8 +19,8 @@ install_reverse_proxy_config() {
   if [ -d "$OPENRESTY_CONF_DIR" ] && container_name="$(find_openresty_container)"; then
     echo "[6/7] Installing OpenResty config..."
     sudo cp deploy/ssqs.nginx.conf "$OPENRESTY_CONF_DIR/ssqs.conf"
-    docker exec "$container_name" /usr/local/openresty/nginx/sbin/nginx -t
-    docker exec "$container_name" /usr/local/openresty/nginx/sbin/nginx -s reload
+    sudo docker exec "$container_name" /usr/local/openresty/nginx/sbin/nginx -t
+    sudo docker exec "$container_name" /usr/local/openresty/nginx/sbin/nginx -s reload
     return 0
   fi
 
