@@ -69,7 +69,6 @@ export default function ResearchTeamPage() {
                         <Link href={`/research-team/${member.slug}`}>{member.name}</Link>
                       </h3>
                       <p className="faculty-direction">{member.direction}</p>
-                      <p>{member.cardSummary}</p>
                       <div className="action-row action-row-compact">
                         <Link href={`/research-team/${member.slug}`}>Profile</Link>
                         <a href={`mailto:${member.email}`}>{member.email}</a>
@@ -86,7 +85,7 @@ export default function ResearchTeamPage() {
                 <h2>Current graduate members of the group</h2>
                 <p className="section-text">
                   Each student card keeps room for a future portrait while already showing research role, school,
-                  cohort, email, and a short introduction.
+                  cohort, and email.
                 </p>
               </div>
 
@@ -115,7 +114,6 @@ export default function ResearchTeamPage() {
                           <strong>Cohort:</strong> {student.cohort}
                         </p>
                       </div>
-                      <p>{student.summary}</p>
                       <div className="student-contact-line">
                         <strong>Email</strong>
                         <a href={`mailto:${student.email}`} title={student.email}>
@@ -167,7 +165,6 @@ export default function ResearchTeamPage() {
                             <strong>Cohort:</strong> {student.cohort}
                           </p>
                         </div>
-                        <p>{student.summary}</p>
                         <div className="student-contact-line">
                           <strong>Email</strong>
                           <a href={`mailto:${student.email}`} title={student.email}>
