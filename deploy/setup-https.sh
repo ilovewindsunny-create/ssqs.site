@@ -96,8 +96,9 @@ server {
 }
 
 server {
-  listen 443 ssl http2;
-  listen [::]:443 ssl http2;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
   server_name ${DOMAIN} ${ALT_DOMAIN};
 
   ssl_certificate /usr/local/openresty/nginx/conf/ssl/${DOMAIN}/fullchain.pem;
