@@ -106,7 +106,7 @@ export const siteMeta = {
   filingHref: "https://beian.miit.gov.cn/#/Integrated/index",
   headline: "Rare-earth quantum memories for long coherence and network-ready interfaces.",
   summary:
-    "We investigate rare-earth-ion-doped materials for quantum memory, coherence spectroscopy, and scalable solid-state interfaces, with a focus on long-lived storage and experimentally grounded routes toward future quantum networks.",
+    "The Solid-State Quantum Storage Laboratory is dedicated to developing the core hardware for next-generation quantum information technologies using rare-earth-ion-doped crystals. Bringing together new material discovery, performance optimization of quantum memories, and the design of quantum network protocols, the laboratory serves as a multidisciplinary platform at the forefront of research. ",
 };
 
 export const homeCards: HomeCard[] = [
