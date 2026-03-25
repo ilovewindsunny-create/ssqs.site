@@ -168,7 +168,7 @@ export const facultyMembers: FacultyMember[] = [
     officialHref: "https://faculty.sustech.edu.cn/zhongmj/en/",
     bio: [
       "Manjin Zhong leads SSQS research on rare-earth-ion-doped solid-state quantum memories, long-lived coherence, and precision spectroscopy in solid hosts.",
-      "His academic path connects Xiamen University, the Laser Physics Centre at the Australian National University, and postdoctoral work at ANU before joining the group in Shenzhen, giving SSQS a strong foundation in both fundamental spectroscopy and quantum-memory-oriented experiments.",
+      "Her academic path connects Xiamen University, the Laser Physics Centre at the Australian National University, and postdoctoral work at ANU before joining the group in Shenzhen, giving SSQS a strong foundation in both fundamental spectroscopy and quantum-memory-oriented experiments.",
     ],
     education: [
       "B.S., Xiamen University",
