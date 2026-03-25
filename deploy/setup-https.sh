@@ -138,6 +138,45 @@ sync_certificate() {
   sudo install -m 600 "/etc/letsencrypt/live/$DOMAIN/privkey.pem" "$CERT_TARGET_DIR/privkey.pem"
 }
 
+request_certificate() {
+  local certbot_args
+  local container_name
+
+  certbot_args=(
+    certonly
+    -d "$DOMAIN"
+    -d "$ALT_DOMAIN"
+    --agree-tos
+    --non-interactive
+    --keep-until-expiring
+  )
+
+  if [ -n "$LE_EMAIL" ]; then
+    certbot_args+=(--email "$LE_EMAIL")
+  else
+    certbot_args+=(--register-unsafely-without-email)
+  fi
+
+  echo "Trying webroot validation first..."
+  if sudo certbot "${certbot_args[@]}" --webroot -w "$WEBROOT"; then
+    return 0
+  fi
+
+  echo "Webroot validation failed. Falling back to tls-alpn-01 on port 443..."
+  container_name="$(find_openresty_container)"
+  docker stop "$container_name" >/dev/null
+
+  cleanup() {
+    docker start "$container_name" >/dev/null 2>&1 || true
+  }
+  trap cleanup EXIT
+
+  sudo certbot "${certbot_args[@]}" --standalone --preferred-challenges tls-alpn-01
+
+  docker start "$container_name" >/dev/null
+  trap - EXIT
+}
+
 install_renew_hook() {
   sudo tee "$RENEW_HOOK" > /dev/null <<EOF
 #!/usr/bin/env bash
@@ -189,24 +228,7 @@ main() {
   reload_openresty
 
   echo "[4/6] Requesting Let's Encrypt certificate..."
-  certbot_args=(
-    certonly
-    --webroot
-    -w "$WEBROOT"
-    -d "$DOMAIN"
-    -d "$ALT_DOMAIN"
-    --agree-tos
-    --non-interactive
-    --keep-until-expiring
-  )
-
-  if [ -n "$LE_EMAIL" ]; then
-    certbot_args+=(--email "$LE_EMAIL")
-  else
-    certbot_args+=(--register-unsafely-without-email)
-  fi
-
-  sudo certbot "${certbot_args[@]}"
+  request_certificate
 
   echo "[5/6] Syncing certificate into OpenResty and enabling HTTPS..."
   sync_certificate
