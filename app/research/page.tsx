@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PageHero } from "../components/page-hero";
 import { PageShell } from "../components/page-shell";
 import { ResearchSidebar, type SidebarGroup } from "../components/research-sidebar";
-import { publications, researchPlatforms } from "../site-data";
+import { keyEquipment, publications, researchPlatforms } from "../site-data";
 
 export const metadata: Metadata = {
   title: "Research | SSQS",
@@ -20,7 +20,7 @@ export default function ResearchPage() {
       <PageHero
         eyebrow="Research"
         title="Research Achievements and Experimental Platforms"
-        summary="The Research page stays focused on outputs and laboratory capability: selected papers that define SSQS scientifically, and the experimental platforms that support those results."
+        summary="SSQS develops solid-state quantum memory through materials discovery, high-performance memory experiments, and the laboratory platforms required for spectroscopy, cryogenic measurements, and system integration."
       />
 
       <main className="site-width page-content">
@@ -82,8 +82,8 @@ export default function ResearchPage() {
                 <p className="eyebrow">Research Platforms</p>
                 <h2>Experimental infrastructure supporting SSQS</h2>
                 <p className="section-text">
-                  These platform views show the laboratory environments behind SSQS work in coherence spectroscopy,
-                  quantum memory experiments, and rare-earth material studies.
+                  These platform views summarize the laboratory environments behind SSQS work in rare-earth
+                  spectroscopy, cryogenic memory experiments, and new-material screening.
                 </p>
               </div>
 
@@ -103,6 +103,42 @@ export default function ResearchPage() {
                       <h3>{platform.title}</h3>
                       <p>{platform.summary}</p>
                       <p>{platform.details}</p>
+                      {platform.equipment?.length ? (
+                        <ul className="platform-equipment-list">
+                          {platform.equipment.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="section-heading equipment-section-heading">
+                <p className="eyebrow">Key Equipment</p>
+                <h2>Representative instruments from the platform slide</h2>
+                <p className="section-text">
+                  These images are organized from the laboratory presentation materials and highlight the equipment
+                  supporting spectroscopy, cryogenic measurements, and optical control.
+                </p>
+              </div>
+
+              <div className="equipment-grid">
+                {keyEquipment.map((item) => (
+                  <article className="equipment-card" key={item.title}>
+                    <div className="equipment-image">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="equipment-cover-image"
+                      />
+                    </div>
+                    <div className="equipment-copy">
+                      <h3>{item.title}</h3>
+                      <p>{item.summary}</p>
                     </div>
                   </article>
                 ))}

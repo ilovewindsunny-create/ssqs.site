@@ -1,4 +1,4 @@
-export type NavItem = {
+﻿export type NavItem = {
   href: string;
   label: string;
 };
@@ -88,6 +88,13 @@ export type ResearchPlatform = {
   summary: string;
   details: string;
   image: string;
+  equipment?: string[];
+};
+
+export type EquipmentItem = {
+  title: string;
+  image: string;
+  summary: string;
 };
 
 export const navItems: NavItem[] = [
@@ -100,13 +107,18 @@ export const navItems: NavItem[] = [
 export const siteMeta = {
   shortName: "SSQS",
   groupName: "Solid-State Quantum Storage Laboratory",
-  institution: "International Quantum Academy, and Shenzhen Branch, Hefei National Laboratory, Shenzhen",
+  institution: "Shenzhen International Quantum Academy",
+  affiliation: "Shenzhen Branch, Hefei National Laboratory",
   location: "Shenzhen, China",
-  filingNumber: "鄂ICP备2026011934号-1",
+  address:
+    "\u6df1\u5733\u5e02\u798f\u7530\u533a\u798f\u4fdd\u8857\u9053\u798f\u7530\u4fdd\u7a0e\u533a\u69df\u6994\u905310\u53f7\uff0c\u5b9e\u9a8c\u5ba4108",
+  primaryContact: "zhongmanjin@iqasz.cn",
+  filingNumber: "\u9102ICP\u59072026011934\u53f7-1",
   filingHref: "https://beian.miit.gov.cn/#/Integrated/index",
-  headline: "Rare-earth quantum memories for long coherence and network-ready interfaces.",
+  copyright: "Copyright \u00A9 2026 SSQS. All Rights Reserved.",
+  headline: "Core hardware for next-generation quantum information using rare-earth-ion-doped crystals.",
   summary:
-    "The Solid-State Quantum Storage Laboratory is dedicated to developing the core hardware for next-generation quantum information technologies using rare-earth-ion-doped crystals. Bringing together new material discovery, performance optimization of quantum memories, and the design of quantum network protocols, the laboratory serves as a multidisciplinary platform at the forefront of research. ",
+    "The Solid-State Quantum Storage Laboratory is dedicated to developing the core hardware for next-generation quantum information technologies using rare-earth-ion-doped crystals. Bringing together new material discovery, performance optimization of quantum memories, and the design of quantum network protocols, the laboratory serves as a multidisciplinary platform at the forefront of research.",
 };
 
 export const homeCards: HomeCard[] = [
@@ -146,12 +158,12 @@ export const homeHighlights: Highlight[] = [
 ];
 
 export const homeNews: NewsItem = {
-  date: "To be updated",
-  category: "News",
-  title: "Latest updates from SSQS will appear here",
+  date: "December 2025",
+  category: "Laboratory",
+  title: "Group portrait of the current SSQS research team",
   summary:
-    "This space is reserved for new publications, awards, graduations, conference participation, hosted meetings, engineering progress, and other important milestones from the laboratory.",
-  image: "/assets/lab/cryogenic-optics-lab.png",
+    "Members of SSQS gathered in the laboratory for a new group portrait. The image reflects the current research team working on rare-earth solid-state quantum storage, spectroscopy, and experimental platform development, and it will serve as a visual entry point for future laboratory updates on publications, honors, conferences, and student milestones.",
+  image: "/assets/news/group-photo.jpg",
 };
 
 export const facultyMembers: FacultyMember[] = [
@@ -226,7 +238,7 @@ export const facultyMembers: FacultyMember[] = [
         href: "https://www.nature.com/articles/nature14025",
       },
       {
-        title: "Minimizing Zeeman sensitivity on optical and hyperfine transitions in EuCl3·6H2O to extend coherence times",
+        title: "Minimizing Zeeman sensitivity on optical and hyperfine transitions in EuCl3路6H2O to extend coherence times",
         citation:
           "R. Ahlefeldt, M. Zhong, J. Bartholomew, and M. Sellars, Journal of Luminescence 143, 193-200 (2013).",
         href: "https://www.sciencedirect.com/science/article/abs/pii/S0022231313002573",
@@ -298,7 +310,7 @@ export const facultyMembers: FacultyMember[] = [
       {
         title: "Optical coherence properties of Kramers' rare-earth ions at the nanoscale for quantum applications",
         citation:
-          "M. K. Alqedra, C. Deshmukh, S. Liu, D. Serrano, S. P. Horvath, S. Rafie-Zinedine, A. Abdelatief, L. Rippe, S. Kröll, B. Casabone, A. Ferrier, A. Tallaire, P. Goldner, H. de Riedmatten, and A. Walther, Physical Review B 108, 075107 (2023).",
+          "M. K. Alqedra, C. Deshmukh, S. Liu, D. Serrano, S. P. Horvath, S. Rafie-Zinedine, A. Abdelatief, L. Rippe, S. Kr枚ll, B. Casabone, A. Ferrier, A. Tallaire, P. Goldner, H. de Riedmatten, and A. Walther, Physical Review B 108, 075107 (2023).",
         href: "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.075107",
       },
       {
@@ -431,28 +443,28 @@ export function getFacultyMember(slug: string) {
 
 export const researchThemes: ResearchTheme[] = [
   {
-    title: "Long-Lived Rare-Earth Quantum Memories",
-    systems: "Eu3+-based solid-state hosts relevant to optical and hyperfine storage.",
-    methods: "Cryogenic optical spectroscopy, coherence measurements, and quantum-memory-relevant control protocols.",
-    goal: "Push storage lifetimes and coherence benchmarks that matter for real solid-state quantum memories.",
+    title: "Discovering New Materials",
+    systems: "Novel rare-earth-ion-doped crystals and polycrystalline platforms, including nanoparticles and transparent ceramics.",
+    methods: "Spectroscopic and coherence characterization across rare-earth hosts with different bandwidth, noise, and processing properties.",
+    goal: "Identify material platforms for quantum memories with broader bandwidth, longer coherence times, and lower noise.",
   },
   {
-    title: "Coherence Spectroscopy and Structure",
-    systems: "Rare-earth-ion-doped crystals and new hosts with narrow optical transitions.",
-    methods: "Hyperfine-structure analysis, spectral characterization, and spin-dynamics measurements.",
-    goal: "Understand the microscopic origins of decoherence and identify what limits storage fidelity and lifetime.",
+    title: "Building High-Performance Quantum Memories",
+    systems: "Rare-earth solid-state memories designed for high efficiency, long lifetime, and large multimode capacity.",
+    methods: "High ion densities, impedance-matched optical cavities, ZEFOZ operation points, dynamical decoupling, and AFC-based multimode storage.",
+    goal: "Develop next-generation quantum memories with record-breaking storage performance and scalable capacity.",
   },
   {
-    title: "New Material Platforms",
-    systems: "Single crystals, oxide ceramics, and micro or nano rare-earth materials.",
-    methods: "Host screening, material processing, and coherence benchmarking across scalable platforms.",
-    goal: "Bridge benchmark coherence studies with materials that are easier to fabricate, process, or integrate.",
+    title: "Towards Quantum Networks",
+    systems: "Multiple interconnected memory nodes, repeater-style architectures, and secure communication demonstrations.",
+    methods: "Prototype quantum repeaters, entanglement swapping and purification, routing protocols, and ultralong-lived portable memory concepts.",
+    goal: "Build the foundations of the quantum internet around high-performance solid-state memory nodes.",
   },
   {
-    title: "Toward Quantum Network Interfaces",
-    systems: "Erbium-doped and stoichiometric rare-earth platforms with telecom relevance.",
-    methods: "Interface-oriented spectroscopy, materials engineering, and architecture-driven platform design.",
-    goal: "Move from isolated memory demonstrations toward network-compatible solid-state quantum nodes.",
+    title: "Hybrid Quantum Systems",
+    systems: "Rare-earth-based memories coupled with quantum dots, single-photon sources, cold atoms, ion traps, and solid-state qubits.",
+    methods: "Cross-platform interface design linking memory elements with quantum emitters and quantum processing units.",
+    goal: "Create hybrid architectures that connect quantum memories with sources, transducers, and processors.",
   },
 ];
 
@@ -527,25 +539,73 @@ export const publications: Publication[] = [
 
 export const researchPlatforms: ResearchPlatform[] = [
   {
-    title: "Cryogenic Optical Spectroscopy Platform",
-    summary: "A low-temperature optics platform for coherence measurements, spectroscopy, and quantum-memory-relevant experiments in rare-earth systems.",
+    title: "Laser Spectroscopy and Optical Control Platform",
+    summary:
+      "Ultra-stable optical benches and tunable laser systems for rare-earth spectroscopy, coherence control, and quantum-memory preparation sequences.",
     details:
-      "This platform supports long-coherence measurements, stable optical addressing, and experimental routines required for solid-state quantum storage studies.",
+      "This platform supports precise optical addressing, AFC-related preparation, and sensitive signal collection for crystals, ceramics, and device-oriented rare-earth samples.",
     image: "/assets/lab/cryogenic-optics-lab.png",
+    equipment: [
+      "Ultra-stable optical platforms",
+      "Narrowband tunable laser system",
+      "Single-frequency tunable laser",
+      "Photoelectric signal detection equipment",
+    ],
   },
   {
-    title: "Solid-State Quantum Memory Setup",
-    summary: "An integrated optical setup for rare-earth-ion quantum memory experiments, control sequences, and benchmarking of storage performance.",
+    title: "Cryogenic and Strong-Field Infrastructure",
+    summary:
+      "Low-temperature and magnetic-field environments for long-coherence measurements, ZEFOZ studies, and benchmarking solid-state quantum memories.",
     details:
-      "The platform links laser control, sample handling, and detection workflows needed to evaluate memory lifetime, efficiency, and coherence preservation.",
+      "These systems make it possible to probe long-lived storage, extend coherence with dynamical decoupling, and evaluate rare-earth memory performance under controlled cryogenic conditions.",
     image: "/assets/lab/movable-solid-state-memory.png",
+    equipment: ["Vacuum cryostat", "Low-temperature strong magnetic platform", "Vector field dilution refrigerator"],
   },
   {
-    title: "Crystal and Material Preparation Environment",
-    summary: "Laboratory infrastructure for rare-earth materials preparation, host evaluation, and sample development connected to coherence studies.",
+    title: "Materials Preparation and Device Screening",
+    summary:
+      "Laboratory space for exploring new rare-earth crystals, polycrystalline platforms, and sample-development routes linked to quantum memory.",
     details:
-      "This part of the laboratory supports the transition from materials preparation to optical characterization and device-oriented screening.",
+      "This environment supports the transition from new material discovery to spectroscopic evaluation, helping SSQS identify hosts with broader bandwidth, longer coherence, and lower noise.",
     image: "/assets/lab/crystal-growth-lab.png",
+  },
+];
+
+export const keyEquipment: EquipmentItem[] = [
+  {
+    title: "Vector Field Dilution Refrigerator",
+    image: "/assets/equipment/vector-field-dilution-refrigerator.jpg",
+    summary: "Cryogenic infrastructure for low-temperature experiments where long-lived coherence and memory performance must be measured under tightly controlled conditions.",
+  },
+  {
+    title: "Vacuum Cryostat",
+    image: "/assets/equipment/vacuum-cryostat.jpg",
+    summary: "A compact cryogenic environment for rare-earth samples, used in optical and spectroscopic measurements relevant to solid-state quantum storage.",
+  },
+  {
+    title: "Narrowband Tunable Laser System",
+    image: "/assets/equipment/narrowband-tunable-laser-system.jpg",
+    summary: "Laser source infrastructure for resolving narrow transitions and carrying out high-resolution spectroscopy in rare-earth hosts.",
+  },
+  {
+    title: "Single-Frequency Tunable Laser",
+    image: "/assets/equipment/single-frequency-tunable-laser.png",
+    summary: "Precision optical control hardware used in preparation, addressing, and coherence-sensitive measurements.",
+  },
+  {
+    title: "Photoelectric Signal Detection Equipment",
+    image: "/assets/equipment/photoelectric-signal-detection-equipment.png",
+    summary: "Detection and acquisition instrumentation for extracting weak optical signals from quantum-memory and spectroscopy experiments.",
+  },
+  {
+    title: "Ultra-Stable Optical Platforms",
+    image: "/assets/equipment/ultra-stable-optical-platforms.png",
+    summary: "Low-vibration optical benches providing the mechanical stability required for long-running rare-earth experiments.",
+  },
+  {
+    title: "Low-Temperature Strong Magnetic Platform",
+    image: "/assets/equipment/low-temperature-strong-magnetic-platform.png",
+    summary: "A strong-field experimental platform supporting magnetically tuned measurements in solid-state rare-earth systems.",
   },
 ];
 
@@ -619,6 +679,24 @@ export const currentStudents: StudentMember[] = studentMembers;
 
 export const alumniStudents: StudentMember[] = [];
 
+export const joinContactInfo = {
+  opening:
+    "We are always looking for talented and passionate students, engineers, postdoctoral researchers, and collaborators in physics, quantum science, optics, materials science, and information science to join SSQS and help push the boundaries of the quantum world.",
+  application:
+    "Please email a brief introduction together with your CV. Supporting materials such as transcripts, publications, project summaries, or engineering experience are helpful for an initial discussion.",
+  affiliation: `${siteMeta.institution}, ${siteMeta.affiliation}`,
+  address: siteMeta.address,
+  metro: "Recommended subway arrival: Fubao Station, Exit B",
+  visitImage: "/assets/contact/visit-map.png",
+  visitCaption:
+    "The annotated map shows the recommended walking route from the subway station to the laboratory area, with LIA Hotel marked as a nearby accommodation option for visitors.",
+  visitNotes: [
+    "Use the highlighted route from Fubao Station Exit B to approach the laboratory area on foot.",
+    "LIA Hotel, marked on the map, is a convenient nearby option for short academic visits.",
+    "Please contact the laboratory by email before visiting so that arrival details can be coordinated in advance.",
+  ],
+};
+
 export const joinCategories: JoinCategory[] = [
   {
     title: "Students",
@@ -641,3 +719,4 @@ export const joinCategories: JoinCategory[] = [
       "Please prepare a CV, a brief statement of research interests, and supporting material such as transcripts or publications. Initial contact can be made by email to the relevant faculty member.",
   },
 ];
+

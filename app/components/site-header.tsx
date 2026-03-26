@@ -10,6 +10,7 @@ export function SiteHeader() {
           <span className="brand-copy">
             <strong>{siteMeta.groupName}</strong>
             <small>{siteMeta.institution}</small>
+            <small>{siteMeta.affiliation}</small>
           </span>
         </Link>
 

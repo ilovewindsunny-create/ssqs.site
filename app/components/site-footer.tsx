@@ -8,12 +8,15 @@ export function SiteFooter() {
         <div className="footer-brand">
           <h2>{siteMeta.groupName}</h2>
           <p>{siteMeta.institution}</p>
+          <p>{siteMeta.affiliation}</p>
           <p>{siteMeta.location}</p>
+          <p className="footer-address">{siteMeta.address}</p>
           <p className="footer-filing">
             <a href={siteMeta.filingHref} target="_blank" rel="noreferrer">
               {siteMeta.filingNumber}
             </a>
           </p>
+          <p className="footer-copyright">{siteMeta.copyright}</p>
         </div>
 
         <div className="footer-column">

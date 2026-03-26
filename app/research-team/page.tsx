@@ -35,8 +35,8 @@ export default function ResearchTeamPage() {
     <PageShell>
       <PageHero
         eyebrow="Research Team"
-        title="Faculty Leads and Student Researchers"
-        summary="The Research Team page presents the faculty responsible for the group and the student researchers growing within SSQS, with dedicated space for portraits, background details, and contact information."
+        title="Full-Time Researchers and Graduate Students"
+        summary="The SSQS team brings together full-time researchers and graduate students working on rare-earth materials, quantum memory experiments, coherence spectroscopy, and related quantum technologies."
       />
 
       <main className="site-width page-content">
@@ -46,11 +46,11 @@ export default function ResearchTeamPage() {
           <div className="sidebar-content">
             <section className="content-section side-panel-section" id="faculty">
               <div className="section-heading">
-                <p className="eyebrow">Faculty Leads</p>
-                <h2>Faculty responsible for SSQS</h2>
+                <p className="eyebrow">Team Members</p>
+                <h2>Full-time researchers</h2>
                 <p className="section-text">
-                  Faculty entries lead into detailed profile pages and keep a consistent portrait area with more
-                  controlled sizing and framing.
+                  These researchers lead SSQS directions in solid-state quantum memory, rare-earth materials, and
+                  quantum optics, with profile pages available for further details.
                 </p>
               </div>
 
@@ -80,11 +80,11 @@ export default function ResearchTeamPage() {
 
             <section className="content-section side-panel-section" id="current-students">
               <div className="section-heading">
-                <p className="eyebrow">Student Researchers</p>
-                <h2>Current graduate members of the group</h2>
+                <p className="eyebrow">Team Members</p>
+                <h2>Graduate students</h2>
                 <p className="section-text">
-                  Each student card keeps room for a future portrait while already showing research role, school, and
-                  email.
+                  The current roster follows the laboratory materials and can continue to expand with portraits, school
+                  information, and contact details as the group develops.
                 </p>
               </div>
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "./components/page-shell";
-import { homeHighlights, homeNews, publications, siteMeta } from "./site-data";
+import { homeNews, researchThemes, siteMeta } from "./site-data";
 
 export default function HomePage() {
   return (
@@ -68,47 +68,29 @@ export default function HomePage() {
           </article>
         </section>
 
-        <section className="content-section dual-panel home-secondary-section">
-          <article className="panel">
-            <p className="eyebrow">Highlights</p>
-            <h2>Recent directions shaping SSQS</h2>
-            <div className="highlight-list">
-              {homeHighlights.map((item) => (
-                <div className="highlight-item" key={item.title}>
-                  <span>{item.year}</span>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.summary}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </article>
+        <section className="content-section home-secondary-section">
+          <div className="section-heading">
+            <p className="eyebrow">Research Themes</p>
+            <h2>Four directions shaping SSQS</h2>
+            <p className="section-text">
+              The laboratory materials define SSQS around four interconnected themes spanning materials, memories,
+              networks, and hybrid systems.
+            </p>
+          </div>
 
-          <article className="panel feature-panel">
-            <div className="feature-image">
-              <Image
-                src={publications[0].image ?? "/assets/lab/movable-solid-state-memory.png"}
-                alt={publications[0].title}
-                fill
-                sizes="(max-width: 900px) 100vw, 40vw"
-                className="cover-image"
-              />
-            </div>
-            <div className="feature-copy">
-              <p className="eyebrow">Featured Paper</p>
-              <h2>{publications[0].title}</h2>
-              <p>{publications[0].result}</p>
-              <div className="action-row">
-                {publications[0].sourceHref ? (
-                  <a href={publications[0].sourceHref} target="_blank" rel="noreferrer">
-                    Source
-                  </a>
-                ) : null}
-                <Link href="/research">Research</Link>
-              </div>
-            </div>
-          </article>
+          <div className="theme-grid">
+            {researchThemes.map((theme) => (
+              <article className="theme-card" key={theme.title}>
+                <h3>{theme.title}</h3>
+                <p>{theme.systems}</p>
+                <p>{theme.goal}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="action-row">
+            <Link href="/research">Research</Link>
+          </div>
         </section>
       </main>
     </PageShell>

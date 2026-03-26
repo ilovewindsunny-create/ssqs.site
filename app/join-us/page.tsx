@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "../components/page-hero";
 import { PageShell } from "../components/page-shell";
-import { facultyContacts, joinCategories } from "../site-data";
+import { facultyContacts, joinContactInfo } from "../site-data";
 
 export const metadata: Metadata = {
   title: "Join Us | SSQS",
@@ -12,50 +13,61 @@ export default function JoinUsPage() {
     <PageShell>
       <PageHero
         eyebrow="Join Us"
-        title="Openings for Students, Engineers, Postdocs, and Collaborators"
-        summary="We are always looking for talented and passionate students and postdocs in physics, quantum science, optics, materials science, and information science to join our team and push the boundaries of the quantum world."
+        title="Opening"
+        summary="Contact SSQS for opportunities in student research, engineering, postdoctoral work, and academic collaboration."
       />
 
-      <main className="site-width page-content">
-        <section className="content-section">
-          <div className="join-grid">
-            {joinCategories.map((item) => (
-              <article className="info-card" key={item.title}>
-                <h2>{item.title}</h2>
-                <p>{item.details}</p>
-              </article>
-            ))}
+      <main className="site-width page-content join-us-page">
+        <section className="content-section join-contact-shell">
+          <div className="join-contact-layout">
+            <article className="join-contact-copy">
+              <p className="join-contact-lead">{joinContactInfo.opening}</p>
+              <p>{joinContactInfo.application}</p>
+
+              <dl className="join-contact-meta">
+                <div className="join-contact-meta-row">
+                  <dt>Affiliation</dt>
+                  <dd>{joinContactInfo.affiliation}</dd>
+                </div>
+                <div className="join-contact-meta-row">
+                  <dt>Address</dt>
+                  <dd>{joinContactInfo.address}</dd>
+                </div>
+                <div className="join-contact-meta-row">
+                  <dt>Metro</dt>
+                  <dd>{joinContactInfo.metro}</dd>
+                </div>
+              </dl>
+
+              <div className="join-contact-directory">
+                {facultyContacts.map((member) => (
+                  <div className="join-contact-person" key={member.email}>
+                    <a href={member.href}>{member.name}</a>
+                    <a href={`mailto:${member.email}`}>{member.email}</a>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <aside className="join-contact-visual">
+              <p className="eyebrow">Visit Guide</p>
+              <div className="join-contact-image-frame">
+                <Image
+                  src={joinContactInfo.visitImage}
+                  alt="Annotated route map for visiting SSQS"
+                  fill
+                  sizes="(max-width: 1100px) 100vw, 42vw"
+                  className="join-contact-image"
+                />
+              </div>
+              <p className="join-contact-caption">{joinContactInfo.visitCaption}</p>
+              <ul className="join-contact-notes">
+                {joinContactInfo.visitNotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </aside>
           </div>
-        </section>
-
-        <section className="content-section dual-panel">
-          <article className="panel">
-            <p className="eyebrow">Research Fit</p>
-            <h2>Backgrounds that match the lab well</h2>
-            <ul className="plain-list">
-              <li>Quantum information or AMO physics</li>
-              <li>Optics and laser experiments</li>
-              <li>Solid-state spectroscopy and rare-earth materials</li>
-              <li>Cryogenic measurements and instrumentation</li>
-              <li>Scientific programming, automation, or data analysis</li>
-            </ul>
-          </article>
-
-          <article className="panel panel-accent">
-            <p className="eyebrow">Contact</p>
-            <h2>Initial contact</h2>
-            <p>
-              Please write with a CV and a short description of your interests. If possible, include supporting material
-              such as transcripts, publications, or project summaries.
-            </p>
-            <div className="link-stack">
-              {facultyContacts.map((member) => (
-                <a href={`mailto:${member.email}`} key={member.email}>
-                  {member.name} | {member.email}
-                </a>
-              ))}
-            </div>
-          </article>
         </section>
       </main>
     </PageShell>
