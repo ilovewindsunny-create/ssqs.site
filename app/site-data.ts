@@ -520,7 +520,7 @@ export const publications: Publication[] = [
   {
     title: "Optical coherence and hyperfine structure of the 7F0<->5D0 transition in Eu3+:CaWO4",
     authors:
-      "Xiantong An, Xin An, Weiye Sun, Zhehao Xu, Wanting Xiao, Miaomiao Ren, Mucheng Guo, Shuping Liu, Fudong Wang, and Manjin Zhong",
+      "Xiantong An, Weiye Sun, Zhehao Xu, Wanting Xiao, Miaomiao Ren, Mucheng Guo, Shuping Liu, Fudong Wang, and Manjin Zhong",
     publishedOn: "1 Jun 2025",
     sortDate: "2025-06-01",
     venue: "Journal of Luminescence",
