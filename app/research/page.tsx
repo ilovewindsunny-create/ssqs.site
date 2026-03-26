@@ -23,8 +23,8 @@ export default function ResearchPage() {
         summary="SSQS develops solid-state quantum memory through materials discovery, high-performance memory experiments, and the laboratory platforms required for spectroscopy, cryogenic measurements, and system integration."
       />
 
-      <main className="site-width page-content">
-        <div className="sidebar-layout">
+      <main className="site-width page-content research-page-main">
+        <div className="sidebar-layout research-page-layout">
           <ResearchSidebar ariaLabel="Research sections" groups={researchSidebarGroups} />
 
           <div className="sidebar-content">
@@ -47,7 +47,7 @@ export default function ResearchPage() {
                           src={paper.image}
                           alt={paper.title}
                           fill
-                          sizes="(max-width: 1100px) 100vw, 36vw"
+                          sizes="(max-width: 1100px) 100vw, 42vw"
                           className="publication-figure-image"
                         />
                       </div>
@@ -95,7 +95,7 @@ export default function ResearchPage() {
                         src={platform.image}
                         alt={platform.title}
                         fill
-                        sizes="(max-width: 900px) 100vw, 38vw"
+                        sizes="(max-width: 1100px) 100vw, 44vw"
                         className="platform-cover-image"
                       />
                     </div>
@@ -132,7 +132,7 @@ export default function ResearchPage() {
                         src={item.image}
                         alt={item.title}
                         fill
-                        sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 780px) 100vw, (max-width: 1100px) 50vw, 48vw"
                         className="equipment-cover-image"
                       />
                     </div>

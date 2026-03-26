@@ -14,6 +14,7 @@
   --radius-lg: 22px;
   --radius-md: 16px;
   --site-width: 1220px;
+  --research-width: 1540px;
   --copy-size: 1.08rem;
   --title-card: clamp(1.42rem, 1.1vw, 1.72rem);
   --title-block: clamp(1.72rem, 1.8vw, 2.08rem);
@@ -298,11 +299,20 @@ img {
   padding: 28px 0 72px;
 }
 
+.research-page-main.site-width {
+  width: min(var(--research-width), calc(100vw - 24px));
+}
+
 .sidebar-layout {
   display: grid;
   grid-template-columns: 250px minmax(0, 1fr);
   gap: 28px;
   align-items: start;
+}
+
+.research-page-layout {
+  grid-template-columns: 214px minmax(0, 1fr);
+  gap: 20px;
 }
 
 .sidebar-content {
@@ -393,6 +403,10 @@ img {
   border-radius: var(--radius-lg);
   background: var(--surface);
   box-shadow: var(--shadow);
+}
+
+.research-page-layout .side-panel-section {
+  padding: 32px 34px 36px;
 }
 
 .side-panel-section + .side-panel-section {
@@ -486,6 +500,10 @@ img {
 .section-heading {
   max-width: 72ch;
   margin-bottom: 28px;
+}
+
+.research-page-layout .section-heading {
+  max-width: 86ch;
 }
 
 .dual-panel {
@@ -900,6 +918,35 @@ img {
   gap: 20px;
 }
 
+.research-page-layout .publication-card {
+  grid-template-columns: minmax(430px, 0.46fr) minmax(0, 0.54fr);
+}
+
+.research-page-layout .publication-media {
+  min-height: 390px;
+}
+
+.research-page-layout .publication-figure-image {
+  padding: 8px 10px;
+}
+
+.research-page-layout .platform-card {
+  grid-template-columns: minmax(420px, 0.48fr) minmax(0, 0.52fr);
+}
+
+.research-page-layout .platform-image {
+  min-height: 360px;
+}
+
+.research-page-layout .platform-cover-image {
+  padding: 16px 18px;
+}
+
+.research-page-layout .equipment-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
 .platform-card {
   display: grid;
   grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
@@ -970,14 +1017,26 @@ img {
   background: linear-gradient(180deg, #f9fbfd 0%, #eef4f9 100%);
 }
 
+.research-page-layout .equipment-image {
+  aspect-ratio: 16 / 10;
+}
+
 .equipment-cover-image {
   object-fit: contain;
   object-position: center center;
   padding: 10px;
 }
 
+.research-page-layout .equipment-cover-image {
+  padding: 12px 14px;
+}
+
 .equipment-copy {
   padding: 18px 20px 20px;
+}
+
+.research-page-layout .equipment-copy {
+  padding: 20px 22px 22px;
 }
 
 .equipment-copy h3 {
@@ -1445,6 +1504,10 @@ img {
 
   .research-sidebar {
     position: static;
+  }
+
+  .research-page-layout .research-sidebar {
+    margin-left: 0;
   }
 
   .faculty-profile-portrait-compact {
