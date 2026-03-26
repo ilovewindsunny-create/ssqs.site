@@ -979,11 +979,11 @@ img {
 
 .publication-date-label {
   margin: 0;
-  color: var(--blue-800);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  color: var(--blue-900);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
 }
 
 .publication-timeline-item h3 {
