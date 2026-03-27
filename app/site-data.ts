@@ -525,6 +525,24 @@ export const publications: Publication[] = [
     sourceHref: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
     image: "/assets/papers/prx-10hour-storage.png",
   },
+
+  {
+    title: "Realization of strong coupling between Er3+: CaWO4 crystal and the loop-gap resonator for a hybrid quantum system",
+    authors:
+      "Qiangrui Li, Miaomiao Ren, Shuping Liu, Fudong Wang, Manjin Zhong",
+    publishedOn: "15 Sep 2025",
+    sortDate: "2025-09-15",
+    venue: "Applied Physics Letters",
+    year: "2025",
+    result:
+      "we design and construct a high-quality-factor three-dimensional loop-gap microwave resonator for wide-range electron spin resonance detection. We achieved strong coupling with a strength of 85.1 MHz at 100 mK. ",
+    significance:
+      "This work demonstrates a robust platform for achieving strong spin–photon coupling, providing a solid foundation for the development of hybrid quantum systems and advancing applications in quantum memory and quantum networks.",
+    sourceHref: "https://doi.org/10.1063/5.0285984",
+    image: "/assets/papers/APL_Er.png",
+  },
+
+  
   {
     title: "Long-lived optical coherence and spin lifetimes in Eu3+:Y2O3 oxide ceramics for quantum memories",
     authors:
