@@ -75,6 +75,8 @@
   Research 和 Research Team 页左侧边栏
 - `app/components/page-shell.tsx`
   页面公共外壳，负责把页头和页脚包起来
+- `app/components/news-carousel.tsx`
+  首页 News 区域的图片轮播组件
 
 ### 2.4 样式文件
 
@@ -90,6 +92,8 @@
   实验室和平台照片
 - `public/assets/papers`
   论文配图
+- `public/assets/news/team-members`
+  首页 News 团队合照轮播图片
 
 ### 2.6 部署相关文件
 
@@ -165,8 +169,8 @@
 找到：
 
 - `siteMeta`
-- `homeHighlights`
 - `homeNews`
+- `researchThemes`
 
 这里可以修改：
 
@@ -174,8 +178,15 @@
 - 机构名称
 - 所在地
 - 首页主标题下方的简介
-- 首页 Highlights
-- 首页 News 的标题、摘要、图片、链接
+- 首页 News 轮播图片
+- 首页 Research Themes 文案
+
+补充说明：
+
+- `homeHighlights`
+  这个字段还保留在 `app/site-data.ts` 里，但当前首页没有使用，日常维护通常不用改。
+- 首页 `News` 标题下面那句说明文字
+  现在写在 `app/page.tsx`，不是从 `site-data.ts` 里读取。
 
 ---
 
@@ -294,26 +305,51 @@
 
 - `publications`
 
-每篇论文目前常用字段：
+每篇论文当前最重要的字段：
 
 - `title`
+- `authors`
+- `publishedOn`
+- `sortDate`
 - `venue`
 - `year`
+- `sourceHref`
+
+这些字段会直接影响当前 `Research -> Publications` 页面显示：
+
+- 标题
+- 作者
+- 期刊 / 会议名称
+- 发表日期
+- 左侧年份分组
+- 论文跳转链接
+
+另外还有一些补充字段，当前页面不一定直接显示，但可以继续保留：
+
 - `result`
 - `significance`
-- `sourceHref`
 - `image`
 
 字段含义：
 
-- `result`
-  论文最核心的结果
-- `significance`
-  为什么重要
+- `authors`
+  作者列表
+- `publishedOn`
+  页面上显示的日期，例如 `25 Feb 2026`
+- `sortDate`
+  用来排序，格式建议固定为 `YYYY-MM-DD`
+- `venue`
+  期刊或会议名称
+- `year`
+  左侧边栏和年份分组使用的年份
 - `sourceHref`
-  来源链接，通常是期刊页
+  来源链接，通常是期刊页或 DOI 页面
+- `result`
+  论文最核心的结果，当前数据里保留，方便以后扩展
+- `significance`
+  为什么重要，当前数据里保留，方便以后扩展
 - `image`
-  论文图
+  论文图，当前 Publications 列表页没有展示，但可以继续留在数据中
 
 如果要换论文图片：
 
@@ -337,65 +373,72 @@ image: "/assets/papers/xxx.png"
 
 - `homeNews`
 
-常见字段：
+当前首页 News 的图片轮播主要读取这里的：
 
-- `date`
-- `category`
 - `title`
-- `summary`
-- `image`
-- `href`
+- `images`
 
-适合更新的内容：
+`images` 里的每一项都需要写成：
 
-- 新论文发表
-- 老师或学生获奖
-- 学生毕业
-- 参加会议
-- 承办会议
-- 工程或实验平台进展
+```ts
+{
+  src: "/assets/news/team-members/team-01.jpg",
+  alt: "Current SSQS team members group photo 1",
+}
+```
 
-新增一条首页 News 时，最简单的方法是直接把 `homeNews` 改成下面这种格式：
+当前首页 News 区块的显示逻辑是：
+
+- 上方的 `News` 标题和说明文字写在 `app/page.tsx`
+- 下方的大图轮播来自 `app/site-data.ts` 里的 `homeNews.images`
+
+如果你只想替换团队合照，优先改 `homeNews.images`。
+
+如果你想改 `News` 这个标题下面那句介绍文字，例如：
+
+- `These photos show our current team members.`
+
+就改：
+
+- `app/page.tsx`
+
+最简单的写法如下：
 
 ```ts
 export const homeNews = {
-  date: "March 2026",
-  category: "Publication",
-  title: "SSQS publishes a new result on rare-earth quantum memory materials",
-  summary:
-    "Our group reports a new publication on coherence properties in rare-earth-ion-doped materials, extending SSQS research on solid-state quantum storage and network-ready interfaces.",
-  image: "/assets/papers/prx-10hour-storage.png",
-  href: "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.010302",
+  date: "December 2025",
+  category: "Current Team",
+  title: "Current Team Members",
+  summary: "These photos show the current members of our team in the laboratory.",
+  images: [
+    {
+      src: "/assets/news/team-members/team-01.jpg",
+      alt: "Current SSQS team members group photo 1",
+    },
+    {
+      src: "/assets/news/team-members/team-02.jpg",
+      alt: "Current SSQS team members group photo 2",
+    },
+  ],
 };
 ```
 
-你实际修改时，只需要替换这 6 项：
+你实际修改时，最常改的是：
 
-- `date`
-  新闻时间，例如 `March 2026`
-- `category`
-  类型，例如 `Publication`、`Award`、`Conference`、`Graduation`
 - `title`
-  新闻标题
-- `summary`
-  简短摘要，建议 1 到 3 句
-- `image`
-  配图路径，图片文件先放到 `public/assets/lab` 或 `public/assets/papers`
-- `href`
-  外部链接，可填论文页、会议页、获奖公告页；如果暂时没有链接，也可以删掉这一行
+  当前主要作为轮播区域的说明标签
+- `images`
+  轮播图片数组
+- `images[].src`
+  图片路径。文件先放到 `public/assets/...`，代码里不要写 `public`
+- `images[].alt`
+  图片说明文字，建议简单写清楚照片内容
 
-如果你要发“学生顺利毕业”这样的新闻，可以参考这个版本：
+补充说明：
 
-```ts
-export const homeNews = {
-  date: "June 2026",
-  category: "Graduation",
-  title: "A graduate member of SSQS successfully completed the degree program",
-  summary:
-    "The group congratulates our graduating student on completing the degree and wishes them continued success in future research and professional development.",
-  image: "/assets/lab/cryogenic-optics-lab.png",
-};
-```
+- 即使只有 1 张图片，也建议写成 `images: [{ ... }]`
+- 当前首页版式不会把 `date`、`category`、`summary`、`href` 显示在图片旁边
+- 这些字段可以继续保留，后面如果首页结构再改，仍然可以复用
 
 ---
 
@@ -483,6 +526,12 @@ export const homeNews = {
 
 - `public/assets/papers`
 
+### 首页 News 团队合照
+
+放到：
+
+- `public/assets/news/team-members`
+
 ### 不要上传 PDF 到 GitHub
 
 本项目现在默认不再把论文 PDF 存进仓库。
@@ -492,7 +541,7 @@ export const homeNews = {
 - 仓库后续可能公开
 - PDF 体积大
 - 版权风险更高
-- 网站当前已经改成只展示论文图片和 `Source` 外链，不再直接提供本地 PDF
+- 网站当前优先展示论文信息和 `View Paper` 外链，不再直接提供本地 PDF
 
 所以今后请遵守这个原则：
 
@@ -605,9 +654,10 @@ portrait: "/assets/faculty/test.jpg"
 
 ## 8. 首页排版怎么改
 
-首页文件：
+首页主要文件：
 
 - `app/page.tsx`
+- `app/components/news-carousel.tsx`
 
 首页常用样式类：
 
@@ -616,20 +666,28 @@ portrait: "/assets/faculty/test.jpg"
 - `.home-hero h1`
 - `.hero-tagline`
 - `.hero-text`
-- `.news-card`
-- `.news-image`
-- `.news-copy`
-- `.highlight-list`
-- `.feature-panel`
-- `.feature-image`
-- `.feature-copy`
+- `.home-news-section`
+- `.section-heading`
+- `.news-card-carousel-only`
+- `.news-image-carousel`
+- `.news-carousel`
+- `.news-carousel-image`
+- `.news-carousel-button`
+- `.news-carousel-dots`
+- `.theme-grid`
+- `.theme-card`
 
 常见修改示例：
 
 - 想让首页大标题更大：改 `.home-hero h1`
-- 想让 News 模块更高：改 `.news-card-featured`
-- 想让 Featured Paper 图片区更高：改 `.feature-image`
+- 想让 News 图片更高：改 `.news-carousel`、`.news-carousel-viewport`、`.news-carousel-slide`
+- 想让 News 图片裁切方式变化：改 `.news-carousel-image`
+- 想让轮播左右按钮更大或更小：改 `.news-carousel-button`
 - 想让首页副标题更宽松：改 `.hero-tagline`
+
+如果你要改轮播切换逻辑、自动播放时间、左右切换按钮行为，改：
+
+- `app/components/news-carousel.tsx`
 
 ---
 
@@ -644,18 +702,24 @@ portrait: "/assets/faculty/test.jpg"
 - `.research-sidebar`
 - `.sidebar-link-top`
 - `.sidebar-link-sub`
-- `.publication-stack`
-- `.publication-card`
-- `.publication-media`
-- `.publication-figure-image`
+- `.research-publications-title`
+- `.publication-year-stack`
+- `.publication-year-group`
+- `.publication-year-heading`
+- `.publication-entry`
+- `.publication-author-line`
+- `.publication-reference-line`
+- `.publication-source-link`
 - `.platform-card`
 - `.platform-image`
 - `.platform-cover-image`
 
 常见修改示例：
 
-- 论文图太小：调大 `.publication-media`
-- 论文图四周留白太多：减小 `.publication-figure-image` 的 `padding`
+- Publications 标题想更大：改 `.research-publications-title`
+- 单篇论文上下留白太多：改 `.publication-entry`
+- 作者和期刊行太挤：改 `.publication-author-line`、`.publication-reference-line`
+- 右侧按钮太小：改 `.publication-source-link`
 - 平台图区太小：改 `.platform-image`
 - 左边栏太宽或太窄：改 `.sidebar-layout`
 
@@ -747,8 +811,7 @@ portrait: "/assets/faculty/test.jpg"
 当前常见相关选择器：
 
 - `.cover-image`
-- `.news-cover-image`
-- `.publication-figure-image`
+- `.news-carousel-image`
 - `.platform-cover-image`
 - `.faculty-portrait img`
 - `.student-photo img`
@@ -776,7 +839,7 @@ portrait: "/assets/faculty/test.jpg"
 
 - 手机导航太挤：看 `.header-inner`、`.main-nav`
 - 页脚标题换行太奇怪：看 `.footer-brand h2`
-- 卡片在手机上堆叠不自然：看 `.faculty-grid`、`.student-grid`、`.publication-card`、`.platform-card`
+- 卡片在手机上堆叠不自然：看 `.faculty-grid`、`.student-grid`、`.publication-entry`、`.platform-card`
 
 ---
 
@@ -801,8 +864,7 @@ portrait: "/assets/faculty/test.jpg"
 
 - Hero
 - News
-- Highlights
-- Featured Paper
+- Research Themes
 
 ### Research 页面模块顺序
 
@@ -812,8 +874,9 @@ portrait: "/assets/faculty/test.jpg"
 
 它控制：
 
-- Achievements
+- Publications
 - Research Platforms
+- Key Equipment
 - 左侧边栏入口
 
 ### Research Team 页面模块顺序
@@ -897,35 +960,53 @@ npm run build
 ```bash
 git add .
 git commit -m "update website content"
-git push origin main
+git push origin HEAD:main
 ```
 
-这一步会更新 GitHub 仓库，但不会自动更新线上网站。
+说明：
+
+- 这一步会把你当前分支的最新提交推送到 GitHub 的 `main`
+- 当前仓库已经配置好 GitHub Actions workflow
+- 只要成功 push 到 `main`，就会自动触发构建和部署
+
+如果你本地本来就在 `main` 分支，下面这个命令也可以：
+
+```bash
+git push origin main
+```
 
 ---
 
 ## 19. 如何发布到线上网站
 
-在项目根目录继续执行：
+当前推荐方式不是手动推生产仓库，而是：
 
 ```bash
-git push production main
+git push origin HEAD:main
 ```
 
-这一步会自动：
+然后到 GitHub 仓库的 `Actions` 页面查看：
+
+- `Deploy SSQS Site`
+
+这个 workflow 会自动：
 
 - 安装依赖
 - 构建网站
-- 重启网站服务
-- 重载反向代理
+- 把当前提交部署到线上服务器
 
-发布后刷新：
+部署完成后刷新：
 
 - `http://ssqs.site`
 
 如果浏览器还是旧页面，按：
 
 - `Ctrl + F5`
+
+补充说明：
+
+- `production` 远程仓库是旧部署方式，日常维护不建议直接使用
+- 除非你明确知道服务器 Git hook 的工作方式，否则优先走 GitHub Actions
 
 ---
 
@@ -939,28 +1020,17 @@ git push production main
 4. 运行 `npm run build`
 5. 提交 Git
 6. 推到 GitHub
-7. 推到 production
+7. 等 GitHub Actions 自动部署完成
 
 推荐命令顺序：
 
 ```bash
 git add .
 git commit -m "update website"
-git push origin main
-git push production main
+git push origin HEAD:main
 ```
 
-如果 GitHub 临时连不上，但你又急着更新线上网站，也可以先：
-
-```bash
-git push production main
-```
-
-等网络恢复后再补：
-
-```bash
-git push origin main
-```
+然后去 GitHub `Actions` 页面确认 `Deploy SSQS Site` 成功。
 
 ---
 
@@ -984,7 +1054,9 @@ git push origin main
 
 ### 改首页 News
 
-- `app/site-data.ts` -> `homeNews`
+- 轮播图片：`app/site-data.ts` -> `homeNews`
+- 标题下说明文字：`app/page.tsx`
+- 轮播切换逻辑：`app/components/news-carousel.tsx`
 
 ### 改实验平台
 
